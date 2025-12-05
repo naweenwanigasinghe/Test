@@ -302,10 +302,10 @@
 
           <!-- My Activity Sidebar -->
           <div
-            class="hidden xl:block w-80 bg-white rounded-lg shadow-custom p-5"
+            class="hidden 2xl:block bg-white rounded-lg shadow-custom p-4 md:p-5 min-h-fit"
           >
             <h2
-              class="text-gray-900 text-base font-medium font-['Poppins'] capitalize mb-4"
+              class="text-gray-900 text-sm md:text-base font-medium font-['Poppins'] capitalize mb-4"
             >
               My Activity
             </h2>
@@ -314,27 +314,27 @@
                 *ngFor="let activity of activities"
                 class="p-3 bg-gray-50 rounded-lg"
               >
-                <div class="flex justify-between items-start mb-2">
+                <div class="flex justify-between items-start mb-2 gap-2">
                   <p
-                    class="text-gray-800 text-xs font-normal font-['Poppins'] capitalize flex-1"
+                    class="text-gray-800 text-[10px] md:text-xs font-normal font-['Poppins'] capitalize flex-1 min-w-0"
                   >
                     {{ activity.text }}
                   </p>
-                  <button>
-                    <svg class="w-5 h-5 fill-gray-400" viewBox="0 0 24 24">
+                  <button class="flex-shrink-0">
+                    <svg class="w-4 md:w-5 h-4 md:h-5 fill-gray-400" viewBox="0 0 24 24">
                       <circle cx="12" cy="5" r="2" />
                       <circle cx="12" cy="12" r="2" />
                       <circle cx="12" cy="19" r="2" />
                     </svg>
                   </button>
                 </div>
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center gap-2">
                   <span
-                    class="text-gray-600 text-[10px] font-light font-['Poppins'] capitalize"
+                    class="text-gray-600 text-[9px] md:text-[10px] font-light font-['Poppins'] capitalize"
                     >{{ activity.time }}</span
                   >
                   <button
-                    class="px-3 py-1 bg-primary-50 rounded text-primary-600 text-[10px] font-normal font-['Poppins'] capitalize"
+                    class="px-2 md:px-3 py-1 bg-primary-50 rounded text-primary-600 text-[9px] md:text-[10px] font-normal font-['Poppins'] capitalize flex-shrink-0"
                   >
                     View
                   </button>
