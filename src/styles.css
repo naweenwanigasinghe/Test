@@ -113,3 +113,16 @@
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
+
+/* Mobile bottom navigation padding */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 80px;
+  }
+
+  main,
+  router-outlet,
+  app-root {
+    padding-bottom: 80px;
+  }
+}
