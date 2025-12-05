@@ -1,350 +1,388 @@
 <div class="min-h-screen bg-gray-100">
-      <!-- Header -->
-      <header
-        class="bg-white shadow-custom rounded-lg mx-4 lg:mx-5 mt-6 lg:mt-7 px-4 lg:px-6 py-3 lg:py-4"
+  <!-- Header -->
+  <header
+    class="bg-white shadow-custom rounded-lg mx-3 sm:mx-4 md:mx-5 mt-4 sm:mt-5 md:mt-6 lg:mt-7 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4"
+  >
+    <div class="flex items-center justify-between gap-2 md:gap-4">
+      <h1
+        class="text-gray-900 text-sm sm:text-base md:text-lg font-medium font-['Poppins'] capitalize flex-shrink-0"
       >
-        <div class="flex items-center justify-between">
-          <h1
-            class="text-gray-900 text-base lg:text-lg font-medium font-['Poppins'] capitalize"
-          >
-            Dashboard
-          </h1>
+        Dashboard
+      </h1>
 
-          <!-- Search Bar (Hidden on mobile) -->
-          <div
-            class="hidden md:flex items-center gap-2 bg-gray-50 rounded px-3 py-2 w-96"
-          >
+      <!-- Search Bar (Hidden on smaller screens) -->
+      <div
+        class="hidden lg:flex items-center gap-2 bg-gray-50 rounded px-3 py-2 min-w-0 flex-1 max-w-xs"
+      >
+        <svg
+          class="w-4 h-4 fill-gray-600 opacity-90 flex-shrink-0"
+          viewBox="0 0 15 15"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.9549 13.9218L10.0856 9.05246C10.8412 8.07559 11.25 6.88122 11.25 5.62498C11.25 4.12123 10.6631 2.71124 9.60183 1.64812C8.54059 0.584997 7.12684 0 5.62498 0C4.12311 0 2.70936 0.586872 1.64812 1.64812C0.584997 2.70936 0 4.12123 0 5.62498C0 7.12684 0.586872 8.54059 1.64812 9.60183C2.70936 10.665 4.12123 11.25 5.62498 11.25C6.88122 11.25 8.07372 10.8412 9.05059 10.0875L13.9199 14.9549C13.9342 14.9692 13.9512 14.9806 13.9698 14.9883C13.9885 14.996 14.0085 15 14.0287 15C14.0489 15 14.0689 14.996 14.0875 14.9883C14.1062 14.9806 14.1232 14.9692 14.1374 14.9549L14.9549 14.1393C14.9692 14.125 14.9806 14.1081 14.9883 14.0894C14.996 14.0708 15 14.0508 15 14.0306C15 14.0104 14.996 13.9904 14.9883 13.9717C14.9806 13.953 14.9692 13.9361 14.9549 13.9218ZM8.59496 8.59496C7.79997 9.38808 6.74622 9.82496 5.62498 9.82496C4.50373 9.82496 3.44999 9.38808 2.65499 8.59496C1.86187 7.79997 1.42499 6.74622 1.42499 5.62498C1.42499 4.50373 1.86187 3.44811 2.65499 2.65499C3.44999 1.86187 4.50373 1.42499 5.62498 1.42499C6.74622 1.42499 7.80184 1.85999 8.59496 2.65499C9.38808 3.44999 9.82496 4.50373 9.82496 5.62498C9.82496 6.74622 9.38808 7.80184 8.59496 8.59496Z"
+          />
+        </svg>
+        <input
+          type="text"
+          placeholder="Search"
+          class="bg-transparent text-xs sm:text-sm text-gray-600 font-light font-['Poppins'] outline-none flex-1 min-w-0"
+        />
+      </div>
+
+      <!-- User Profile & Notifications -->
+      <div
+        class="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 flex-shrink-0"
+      >
+        <!-- Notification & Mail Icons -->
+        <div class="flex items-center gap-2 sm:gap-3 md:gap-4">
+          <div class="relative">
             <svg
-              class="w-4 h-4 fill-gray-600 opacity-90"
-              viewBox="0 0 15 15"
+              class="w-4 h-5 sm:w-5 sm:h-6 fill-gray-400"
+              viewBox="0 0 19 25"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M14.9549 13.9218L10.0856 9.05246C10.8412 8.07559 11.25 6.88122 11.25 5.62498C11.25 4.12123 10.6631 2.71124 9.60183 1.64812C8.54059 0.584997 7.12684 0 5.62498 0C4.12311 0 2.70936 0.586872 1.64812 1.64812C0.584997 2.70936 0 4.12123 0 5.62498C0 7.12684 0.586872 8.54059 1.64812 9.60183C2.70936 10.665 4.12123 11.25 5.62498 11.25C6.88122 11.25 8.07372 10.8412 9.05059 10.0875L13.9199 14.9549C13.9342 14.9692 13.9512 14.9806 13.9698 14.9883C13.9885 14.996 14.0085 15 14.0287 15C14.0489 15 14.0689 14.996 14.0875 14.9883C14.1062 14.9806 14.1232 14.9692 14.1374 14.9549L14.9549 14.1393C14.9692 14.125 14.9806 14.1081 14.9883 14.0894C14.996 14.0708 15 14.0508 15 14.0306C15 14.0104 14.996 13.9904 14.9883 13.9717C14.9806 13.953 14.9692 13.9361 14.9549 13.9218ZM8.59496 8.59496C7.79997 9.38808 6.74622 9.82496 5.62498 9.82496C4.50373 9.82496 3.44999 9.38808 2.65499 8.59496C1.86187 7.79997 1.42499 6.74622 1.42499 5.62498C1.42499 4.50373 1.86187 3.44811 2.65499 2.65499C3.44999 1.86187 4.50373 1.42499 5.62498 1.42499C6.74622 1.42499 7.80184 1.85999 8.59496 2.65499C9.38808 3.44999 9.82496 4.50373 9.82496 5.62498C9.82496 6.74622 9.38808 7.80184 8.59496 8.59496Z"
+                d="M18.0952 19.7727H17.4167V10.1136C17.4167 6.10511 14.4677 2.79261 10.631 2.24148V1.13636C10.631 0.508523 10.1249 0 9.5 0C8.87515 0 8.36905 0.508523 8.36905 1.13636V2.24148C4.53229 2.79261 1.58333 6.10511 1.58333 10.1136V19.7727H0.904762C0.404315 19.7727 0 20.179 0 20.6818V21.5909C0 21.7159 0.101786 21.8182 0.22619 21.8182H6.33333C6.33333 23.5739 7.75268 25 9.5 25C11.2473 25 12.6667 23.5739 12.6667 21.8182H18.7738C18.8982 21.8182 19 21.7159 19 21.5909V20.6818C19 20.179 18.5957 19.7727 18.0952 19.7727ZM9.5 23.1818C8.75074 23.1818 8.14286 22.571 8.14286 21.8182H10.8571C10.8571 22.571 10.2493 23.1818 9.5 23.1818ZM3.61905 19.7727V10.1136C3.61905 8.53409 4.22976 7.05114 5.34092 5.93466C6.45208 4.81818 7.92798 4.20455 9.5 4.20455C11.072 4.20455 12.5479 4.81818 13.6591 5.93466C14.7702 7.05114 15.381 8.53409 15.381 10.1136V19.7727H3.61905Z"
               />
             </svg>
-            <input
-              type="text"
-              placeholder="Search"
-              class="bg-transparent text-sm text-gray-600 font-light font-['Poppins'] outline-none flex-1"
-            />
-          </div>
-
-          <!-- User Profile & Notifications -->
-          <div class="flex items-center gap-3 lg:gap-6">
-            <!-- Notification & Mail Icons -->
-            <div class="flex items-center gap-3 lg:gap-4">
-              <div class="relative">
-                <svg
-                  class="w-5 h-6 lg:w-5 lg:h-6 fill-gray-400"
-                  viewBox="0 0 19 25"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.0952 19.7727H17.4167V10.1136C17.4167 6.10511 14.4677 2.79261 10.631 2.24148V1.13636C10.631 0.508523 10.1249 0 9.5 0C8.87515 0 8.36905 0.508523 8.36905 1.13636V2.24148C4.53229 2.79261 1.58333 6.10511 1.58333 10.1136V19.7727H0.904762C0.404315 19.7727 0 20.179 0 20.6818V21.5909C0 21.7159 0.101786 21.8182 0.22619 21.8182H6.33333C6.33333 23.5739 7.75268 25 9.5 25C11.2473 25 12.6667 23.5739 12.6667 21.8182H18.7738C18.8982 21.8182 19 21.7159 19 21.5909V20.6818C19 20.179 18.5957 19.7727 18.0952 19.7727ZM9.5 23.1818C8.75074 23.1818 8.14286 22.571 8.14286 21.8182H10.8571C10.8571 22.571 10.2493 23.1818 9.5 23.1818ZM3.61905 19.7727V10.1136C3.61905 8.53409 4.22976 7.05114 5.34092 5.93466C6.45208 4.81818 7.92798 4.20455 9.5 4.20455C11.072 4.20455 12.5479 4.81818 13.6591 5.93466C14.7702 7.05114 15.381 8.53409 15.381 10.1136V19.7727H3.61905Z"
-                  />
-                </svg>
-                <div
-                  class="absolute -top-1 -right-1 w-4 h-4 lg:w-5 lg:h-5 bg-alert-500 rounded-full flex items-center justify-center"
-                >
-                  <span class="text-white text-[10px] lg:text-xs font-normal"
-                    >9</span
-                  >
-                </div>
-              </div>
-              <svg
-                class="w-6 h-6 fill-gray-400"
-                viewBox="0 0 25 25"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24.1071 2.67859H0.892857C0.398996 2.67859 0 3.07758 0 3.57145V21.4286C0 21.9225 0.398996 22.3214 0.892857 22.3214H24.1071C24.601 22.3214 25 21.9225 25 21.4286V3.57145C25 3.07758 24.601 2.67859 24.1071 2.67859ZM22.9911 5.77011V20.3125H2.00893V5.77011L1.23884 5.17022L2.33538 3.76118L3.52958 4.69031H21.4732L22.6674 3.76118L23.764 5.17022L22.9911 5.77011ZM21.4732 4.68752L12.5 11.663L3.52679 4.68752L2.33259 3.75839L1.23605 5.16743L2.00614 5.76732L11.5374 13.178C11.8115 13.391 12.1487 13.5066 12.4958 13.5066C12.8429 13.5066 13.1801 13.391 13.4542 13.178L22.9911 5.77011L23.7612 5.17022L22.6646 3.76118L21.4732 4.68752Z"
-                />
-              </svg>
-            </div>
-
-            <!-- User Info -->
-            <div class="flex items-center gap-2 lg:gap-3">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/6d0fdfb14db23e59332a259e103b8b309a70e867?width=84"
-                alt="User"
-                class="w-9 h-9 lg:w-10 lg:h-10 rounded-full shadow-avatar object-cover"
-              />
-              <div class="hidden md:block">
-                <p
-                  class="text-gray-900 text-sm lg:text-base font-normal font-['Poppins'] capitalize"
-                >
-                  Naween Tharuka
-                </p>
-                <p
-                  class="text-gray-600 text-xs font-light font-['Poppins'] capitalize opacity-90"
-                >
-                  Data Submitter
-                </p>
-              </div>
-              <svg
-                class="hidden md:block w-2 h-1 fill-gray-600 opacity-90"
-                viewBox="0 0 10 5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.89507 0H8.90821C8.8411 0 8.77794 0.0244141 8.73847 0.0644532L5.00025 3.88867L1.26203 0.0644532C1.22256 0.0244141 1.1594 0 1.09229 0H0.105432C0.0199038 0 -0.030097 0.0722657 0.0199038 0.124024L4.65945 4.87109C4.82788 5.04297 5.17262 5.04297 5.33973 4.87109L9.97928 0.124024C10.0306 0.0722657 9.9806 0 9.89507 0Z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- Main Content -->
-      <main class="px-4 lg:px-24 py-6 lg:py-8">
-        <!-- Stats Cards -->
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 mb-6 lg:mb-8"
-        >
-          <!-- Submission Summary Card -->
-          <div
-            class="bg-gradient-to-r from-[#290967] to-[#72C9F8] rounded-lg shadow-custom p-4 lg:p-5 text-white"
-          >
-            <div class="flex justify-between items-start mb-3">
-              <h3
-                class="text-lg lg:text-xl font-semibold font-['Poppins'] capitalize leading-tight"
-              >
-                Submission<br />Summary
-              </h3>
-              <button class="transform rotate-90">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="5" r="2" />
-                  <circle cx="12" cy="12" r="2" />
-                  <circle cx="12" cy="19" r="2" />
-                </svg>
-              </button>
-            </div>
-            <p
-              class="text-[10px] font-light font-['Poppins'] capitalize mb-4 opacity-90"
-            >
-              Tasks awaiting data entries
-            </p>
-            <div class="flex justify-between items-end">
-              <div>
-                <p class="text-2xl font-semibold font-['Poppins']">1534</p>
-                <p class="text-base font-light font-['Poppins'] capitalize">
-                  Templates
-                </p>
-              </div>
-              <div>
-                <p class="text-2xl font-semibold font-['Poppins']">1534</p>
-                <p class="text-base font-light font-['Poppins'] capitalize">
-                  Files
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Other Stats Cards -->
-          <div
-            *ngFor="let card of statsCards"
-            class="bg-white rounded-lg shadow-custom p-4 lg:p-5"
-          >
-            <div class="flex justify-between items-start mb-3">
-              <h3
-                class="text-primary-600 text-lg lg:text-xl font-medium font-['Poppins'] capitalize leading-tight"
-              >
-                {{ card.title }}
-              </h3>
-              <button>
-                <svg class="w-6 h-6 fill-gray-400" viewBox="0 0 24 24">
-                  <circle cx="12" cy="5" r="2" />
-                  <circle cx="12" cy="12" r="2" />
-                  <circle cx="12" cy="19" r="2" />
-                </svg>
-              </button>
-            </div>
-            <p
-              class="text-[10px] text-gray-900 font-light font-['Poppins'] capitalize mb-4"
-            >
-              {{ card.description }}
-            </p>
-            <div class="flex justify-between items-end">
-              <div>
-                <p class="text-2xl text-gray-900 font-medium font-['Poppins']">
-                  1534
-                </p>
-                <p
-                  class="text-base text-gray-600 font-light font-['Poppins'] capitalize"
-                >
-                  Templates
-                </p>
-              </div>
-              <div>
-                <p class="text-2xl text-gray-900 font-medium font-['Poppins']">
-                  1534
-                </p>
-                <p
-                  class="text-base text-gray-600 font-light font-['Poppins'] capitalize"
-                >
-                  Files
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tasks Section -->
-        <div class="flex gap-6">
-          <!-- Pending Tasks -->
-          <div class="flex-1 bg-white rounded-lg shadow-custom p-5">
-            <div class="flex justify-between items-center mb-6">
-              <h2
-                class="text-gray-900 text-base font-medium font-['Poppins'] capitalize"
-              >
-                Pending Tasks
-              </h2>
-              <button
-                class="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded"
-              >
-                <span
-                  class="text-gray-700 text-base font-medium font-['Poppins'] capitalize"
-                  >Filter by Date</span
-                >
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7 10l5 5 5-5z" />
-                </svg>
-              </button>
-            </div>
-
-            <!-- Filter Tabs -->
             <div
-              class="flex items-center gap-4 bg-gray-50 rounded-full shadow-card px-4 py-2 mb-6 overflow-x-auto"
+              class="absolute -top-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 bg-alert-500 rounded-full flex items-center justify-center flex-shrink-0"
             >
-              <button
-                *ngFor="let tab of taskTabs"
-                [class.bg-white]="tab.active"
-                [class.shadow-card]="tab.active"
-                class="flex items-center gap-2 px-6 py-2 rounded-full whitespace-nowrap transition-all"
+              <span
+                class="text-white text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs font-normal"
+                >9</span
               >
-                <span
-                  [class.text-primary-600]="tab.active"
-                  [class.text-gray-700]="!tab.active"
-                  [class.font-semibold]="tab.active"
-                  [class.font-medium]="!tab.active"
-                  class="text-lg font-['Poppins'] capitalize"
-                  >{{ tab.label }}</span
-                >
-                <div
-                  class="px-2 py-0.5 rounded"
-                  [class.bg-gradient-to-r]="tab.active"
-                  [class.from-red-500]="tab.active"
-                  [class.to-primary-600]="tab.active"
-                  [class.bg-primary-500]="!tab.active"
-                >
-                  <span
-                    class="text-white text-lg font-medium font-['Poppins']"
-                    >{{ tab.count }}</span
-                  >
-                </div>
-              </button>
-            </div>
-
-            <!-- Task Items -->
-            <div class="space-y-4">
-              <div
-                *ngFor="let task of tasks"
-                class="flex justify-between items-center p-4 rounded-lg bg-gray-50"
-                [class.border-l-4]="true"
-                [style.border-left-color]="task.borderColor"
-              >
-                <div class="flex-1">
-                  <h4
-                    class="text-gray-800 text-base font-medium font-['Poppins'] capitalize mb-2"
-                  >
-                    {{ task.title }}
-                  </h4>
-                  <p
-                    class="text-gray-800 text-sm font-normal font-['Poppins'] capitalize mb-3"
-                  >
-                    {{ task.details }}
-                  </p>
-                  <div class="flex gap-2">
-                    <span
-                      *ngFor="let tag of task.tags"
-                      class="px-2 py-1 rounded text-[10px] font-normal font-['Poppins'] capitalize border"
-                      [style.color]="tag.color"
-                      [style.border-color]="tag.color"
-                      [style.background]="tag.bg"
-                    >
-                      {{ tag.label }}
-                    </span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3 ml-4">
-                  <button
-                    *ngFor="let action of task.actions"
-                    class="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors"
-                    [class.bg-white]="action.style === 'white'"
-                    [class.bg-teal-500]="action.style === 'teal'"
-                    [class.hover:bg-gray-100]="action.style === 'white'"
-                    [class.hover:bg-teal-600]="action.style === 'teal'"
-                  >
-                    <span
-                      class="text-sm font-normal font-['Poppins'] capitalize"
-                      [class.text-gray-900]="action.style === 'white'"
-                      [class.text-white]="action.style === 'teal'"
-                    >
-                      {{ action.label }}
-                    </span>
-                    <img [src]="action.icon" alt="" class="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
-
-          <!-- My Activity Sidebar -->
-          <div
-            class="hidden xl:block w-80 bg-white rounded-lg shadow-custom p-5"
+          <svg
+            class="w-5 h-5 sm:w-6 sm:h-6 fill-gray-400"
+            viewBox="0 0 25 25"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <h2
-              class="text-gray-900 text-base font-medium font-['Poppins'] capitalize mb-4"
+            <path
+              d="M24.1071 2.67859H0.892857C0.398996 2.67859 0 3.07758 0 3.57145V21.4286C0 21.9225 0.398996 22.3214 0.892857 22.3214H24.1071C24.601 22.3214 25 21.9225 25 21.4286V3.57145C25 3.07758 24.601 2.67859 24.1071 2.67859ZM22.9911 5.77011V20.3125H2.00893V5.77011L1.23884 5.17022L2.33538 3.76118L3.52958 4.69031H21.4732L22.6674 3.76118L23.764 5.17022L22.9911 5.77011ZM21.4732 4.68752L12.5 11.663L3.52679 4.68752L2.33259 3.75839L1.23605 5.16743L2.00614 5.76732L11.5374 13.178C11.8115 13.391 12.1487 13.5066 12.4958 13.5066C12.8429 13.5066 13.1801 13.391 13.4542 13.178L22.9911 5.77011L23.7612 5.17022L22.6646 3.76118L21.4732 4.68752Z"
+            />
+          </svg>
+        </div>
+
+        <!-- User Info -->
+        <div class="hidden sm:flex items-center gap-2 md:gap-3 flex-shrink-0">
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/6d0fdfb14db23e59332a259e103b8b309a70e867?width=84"
+            alt="User"
+            class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full shadow-avatar object-cover"
+          />
+          <div class="hidden md:block">
+            <p
+              class="text-gray-900 text-xs md:text-sm lg:text-base font-normal font-['Poppins'] capitalize"
             >
-              My Activity
-            </h2>
-            <div class="space-y-3">
-              <div
-                *ngFor="let activity of activities"
-                class="p-3 bg-gray-50 rounded-lg"
+              Naween Tharuka
+            </p>
+            <p
+              class="text-gray-600 text-[10px] md:text-xs font-light font-['Poppins'] capitalize opacity-90"
+            >
+              Data Submitter
+            </p>
+          </div>
+          <svg
+            class="hidden lg:block w-2 h-1 fill-gray-600 opacity-90"
+            viewBox="0 0 10 5"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.89507 0H8.90821C8.8411 0 8.77794 0.0244141 8.73847 0.0644532L5.00025 3.88867L1.26203 0.0644532C1.22256 0.0244141 1.1594 0 1.09229 0H0.105432C0.0199038 0 -0.030097 0.0722657 0.0199038 0.124024L4.65945 4.87109C4.82788 5.04297 5.17262 5.04297 5.33973 4.87109L9.97928 0.124024C10.0306 0.0722657 9.9806 0 9.89507 0Z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main
+    class="px-4 sm:px-5 md:px-6 lg:px-8 xl:px-12 2xl:px-16 3xl:px-20 4xl:px-24 py-6 md:py-7 lg:py-8"
+  >
+    <!-- Stats Cards -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-5 gap-3 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-5 2xl:gap-6 3xl:gap-6 mb-5 md:mb-6 lg:mb-7 2xl:mb-8"
+    >
+      <!-- Submission Summary Card -->
+      <div
+        class="bg-gradient-to-r from-[#290967] to-[#72C9F8] rounded-lg shadow-custom p-3 sm:p-4 md:p-4 lg:p-4 xl:p-5 2xl:p-5 3xl:p-5 text-white min-h-fit"
+      >
+        <div class="flex justify-between items-start mb-3">
+          <h3
+            class="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-xl 3xl:text-xl font-semibold font-['Poppins'] capitalize leading-tight"
+          >
+            Submission<br />Summary
+          </h3>
+          <button class="transform rotate-90 flex-shrink-0">
+            <svg
+              class="w-5 h-5 sm:w-6 sm:h-6"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <circle cx="12" cy="5" r="2" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="12" cy="19" r="2" />
+            </svg>
+          </button>
+        </div>
+        <p
+          class="text-[9px] sm:text-[10px] font-light font-['Poppins'] capitalize mb-3 md:mb-4 opacity-90"
+        >
+          Tasks awaiting data entries
+        </p>
+        <div class="flex justify-between items-end gap-2">
+          <div class="min-w-0">
+            <p
+              class="text-lg sm:text-xl md:text-xl lg:text-2xl 2xl:text-2xl 3xl:text-2xl font-semibold font-['Poppins']"
+            >
+              1534
+            </p>
+            <p
+              class="text-xs sm:text-sm md:text-sm lg:text-base 2xl:text-base 3xl:text-base font-light font-['Poppins'] capitalize"
+            >
+              Templates
+            </p>
+          </div>
+          <div class="min-w-0">
+            <p
+              class="text-lg sm:text-xl md:text-xl lg:text-2xl 2xl:text-2xl 3xl:text-2xl font-semibold font-['Poppins']"
+            >
+              1534
+            </p>
+            <p
+              class="text-xs sm:text-sm md:text-sm lg:text-base 2xl:text-base 3xl:text-base font-light font-['Poppins'] capitalize"
+            >
+              Files
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Stats Cards -->
+      <div
+        *ngFor="let card of statsCards"
+        class="bg-white rounded-lg shadow-custom p-3 sm:p-4 md:p-4 lg:p-4 xl:p-5 2xl:p-5 3xl:p-5 min-h-fit"
+      >
+        <div class="flex justify-between items-start mb-3">
+          <h3
+            class="text-primary-600 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-xl 3xl:text-xl font-medium font-['Poppins'] capitalize leading-tight"
+          >
+            {{ card.title }}
+          </h3>
+          <button class="flex-shrink-0">
+            <svg
+              class="w-5 h-5 sm:w-6 sm:h-6 fill-gray-400"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="5" r="2" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="12" cy="19" r="2" />
+            </svg>
+          </button>
+        </div>
+        <p
+          class="text-[9px] sm:text-[10px] text-gray-900 font-light font-['Poppins'] capitalize mb-3 md:mb-4"
+        >
+          {{ card.description }}
+        </p>
+        <div class="flex justify-between items-end gap-2">
+          <div class="min-w-0">
+            <p
+              class="text-lg sm:text-xl md:text-xl lg:text-2xl 2xl:text-2xl 3xl:text-2xl text-gray-900 font-medium font-['Poppins']"
+            >
+              1534
+            </p>
+            <p
+              class="text-xs sm:text-sm md:text-sm lg:text-base 2xl:text-base 3xl:text-base text-gray-600 font-light font-['Poppins'] capitalize"
+            >
+              Templates
+            </p>
+          </div>
+          <div class="min-w-0">
+            <p
+              class="text-lg sm:text-xl md:text-xl lg:text-2xl 2xl:text-2xl 3xl:text-2xl text-gray-900 font-medium font-['Poppins']"
+            >
+              1534
+            </p>
+            <p
+              class="text-xs sm:text-sm md:text-sm lg:text-base 2xl:text-base 3xl:text-base text-gray-600 font-light font-['Poppins'] capitalize"
+            >
+              Files
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tasks Section -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-3 3xl:grid-cols-4 gap-4 md:gap-5 lg:gap-6"
+    >
+      <!-- Pending Tasks -->
+      <div
+        class="2xl:col-span-2 3xl:col-span-3 bg-white rounded-lg shadow-custom p-4 sm:p-5"
+      >
+        <div
+          class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 md:mb-6 gap-3 sm:gap-0"
+        >
+          <h2
+            class="text-gray-900 text-sm sm:text-base font-medium font-['Poppins'] capitalize"
+          >
+            Pending Tasks
+          </h2>
+          <button
+            class="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded whitespace-nowrap"
+          >
+            <span
+              class="text-gray-700 text-xs sm:text-sm md:text-base font-medium font-['Poppins'] capitalize"
+              >Filter by Date</span
+            >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 10l5 5 5-5z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div
+          class="flex items-center gap-2 sm:gap-3 md:gap-4 bg-gray-50 rounded-full shadow-card px-3 sm:px-4 py-2 mb-4 md:mb-6 overflow-x-auto"
+        >
+          <button
+            *ngFor="let tab of taskTabs"
+            [class.bg-white]="tab.active"
+            [class.shadow-card]="tab.active"
+            class="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full whitespace-nowrap transition-all flex-shrink-0"
+          >
+            <span
+              [class.text-primary-600]="tab.active"
+              [class.text-gray-700]="!tab.active"
+              [class.font-semibold]="tab.active"
+              [class.font-medium]="!tab.active"
+              class="text-xs sm:text-sm md:text-base lg:text-lg font-['Poppins'] capitalize"
+              >{{ tab.label }}</span
+            >
+            <div
+              class="px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs md:text-sm"
+              [class.bg-gradient-to-r]="tab.active"
+              [class.from-red-500]="tab.active"
+              [class.to-primary-600]="tab.active"
+              [class.bg-primary-500]="!tab.active"
+            >
+              <span class="text-white font-medium font-['Poppins']">{{
+                tab.count
+              }}</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Task Items -->
+        <div class="space-y-3 md:space-y-4">
+          <div
+            *ngFor="let task of tasks"
+            class="flex flex-col md:flex-row md:justify-between md:items-center p-3 md:p-4 rounded-lg bg-gray-50"
+            [class.border-l-4]="true"
+            [style.border-left-color]="task.borderColor"
+          >
+            <div class="flex-1 min-w-0 mb-3 md:mb-0">
+              <h4
+                class="text-gray-800 text-sm md:text-base font-medium font-['Poppins'] capitalize mb-1 md:mb-2"
               >
-                <div class="flex justify-between items-start mb-2">
-                  <p
-                    class="text-gray-800 text-xs font-normal font-['Poppins'] capitalize flex-1"
-                  >
-                    {{ activity.text }}
-                  </p>
-                  <button>
-                    <svg class="w-5 h-5 fill-gray-400" viewBox="0 0 24 24">
-                      <circle cx="12" cy="5" r="2" />
-                      <circle cx="12" cy="12" r="2" />
-                      <circle cx="12" cy="19" r="2" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span
-                    class="text-gray-600 text-[10px] font-light font-['Poppins'] capitalize"
-                    >{{ activity.time }}</span
-                  >
-                  <button
-                    class="px-3 py-1 bg-primary-50 rounded text-primary-600 text-[10px] font-normal font-['Poppins'] capitalize"
-                  >
-                    View
-                  </button>
-                </div>
+                {{ task.title }}
+              </h4>
+              <p
+                class="text-gray-800 text-xs md:text-sm font-normal font-['Poppins'] capitalize mb-2 md:mb-3 break-words"
+              >
+                {{ task.details }}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  *ngFor="let tag of task.tags"
+                  class="px-2 py-1 rounded text-[9px] md:text-[10px] font-normal font-['Poppins'] capitalize border whitespace-nowrap"
+                  [style.color]="tag.color"
+                  [style.border-color]="tag.color"
+                  [style.background]="tag.bg"
+                >
+                  {{ tag.label }}
+                </span>
               </div>
+            </div>
+            <div
+              class="flex items-center gap-2 md:gap-3 ml-0 md:ml-4 flex-wrap md:flex-nowrap md:flex-shrink-0"
+            >
+              <button
+                *ngFor="let action of task.actions"
+                class="flex items-center gap-2 px-2 md:px-4 py-1.5 md:py-2 rounded-lg transition-colors text-xs md:text-sm whitespace-nowrap flex-shrink-0"
+                [class.bg-white]="action.style === 'white'"
+                [class.bg-teal-500]="action.style === 'teal'"
+                [class.hover:bg-gray-100]="action.style === 'white'"
+                [class.hover:bg-teal-600]="action.style === 'teal'"
+              >
+                <span
+                  class="font-normal font-['Poppins'] capitalize hidden sm:inline"
+                  [class.text-gray-900]="action.style === 'white'"
+                  [class.text-white]="action.style === 'teal'"
+                >
+                  {{ action.label }}
+                </span>
+                <img [src]="action.icon" alt="" class="w-4 md:w-5 h-4 md:h-5" />
+              </button>
             </div>
           </div>
         </div>
-      </main>
+      </div>
 
-      <!-- Sidebar Navigation -->
-      <app-data-submitter-navigation></app-data-submitter-navigation>
+      <!-- My Activity Sidebar -->
+      <div
+        class="hidden 2xl:block bg-white rounded-lg shadow-custom p-4 md:p-5 min-h-fit"
+      >
+        <h2
+          class="text-gray-900 text-sm md:text-base font-medium font-['Poppins'] capitalize mb-4"
+        >
+          My Activity
+        </h2>
+        <div class="space-y-3">
+          <div
+            *ngFor="let activity of activities"
+            class="p-3 bg-gray-50 rounded-lg"
+          >
+            <div class="flex justify-between items-start mb-2 gap-2">
+              <p
+                class="text-gray-800 text-[10px] md:text-xs font-normal font-['Poppins'] capitalize flex-1 min-w-0"
+              >
+                {{ activity.text }}
+              </p>
+              <button class="flex-shrink-0">
+                <svg
+                  class="w-4 md:w-5 h-4 md:h-5 fill-gray-400"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="5" r="2" />
+                  <circle cx="12" cy="12" r="2" />
+                  <circle cx="12" cy="19" r="2" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex justify-between items-center gap-2">
+              <span
+                class="text-gray-600 text-[9px] md:text-[10px] font-light font-['Poppins'] capitalize"
+                >{{ activity.time }}</span
+              >
+              <button
+                class="px-2 md:px-3 py-1 bg-primary-50 rounded text-primary-600 text-[9px] md:text-[10px] font-normal font-['Poppins'] capitalize flex-shrink-0"
+              >
+                View
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Sidebar Navigation -->
+  <app-data-submitter-navigation></app-data-submitter-navigation>
 </div>
