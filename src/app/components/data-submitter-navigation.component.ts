@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, HostListener, OnInit, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
@@ -16,10 +16,13 @@ import { RouterModule } from "@angular/router";
     `,
   ],
 })
-export class DataSubmitterNavigationComponent {
+export class DataSubmitterNavigationComponent implements OnInit, OnDestroy {
   @Input() activeRoute?: string;
 
   isExpanded = false;
+  isMobile = false;
+
+  private resizeListener: (() => void) | null = null;
 
   navItems = [
     {
@@ -48,4 +51,54 @@ export class DataSubmitterNavigationComponent {
       route: "/user-manual",
     },
   ];
+
+  ngOnInit(): void {
+    this.checkScreenSize();
+    this.resizeListener = this.checkScreenSize.bind(this);
+    window.addEventListener("resize", this.resizeListener);
+  }
+
+  ngOnDestroy(): void {
+    if (this.resizeListener) {
+      window.removeEventListener("resize", this.resizeListener);
+    }
+  }
+
+  private checkScreenSize(): void {
+    this.isMobile = window.innerWidth < 768;
+    if (this.isMobile) {
+      this.isExpanded = true;
+    }
+  }
+
+  onMouseEnter(): void {
+    if (!this.isMobile) {
+      this.isExpanded = true;
+    }
+  }
+
+  onMouseLeave(): void {
+    if (!this.isMobile) {
+      this.isExpanded = false;
+    }
+  }
+
+  onNavClick(): void {
+    if (this.isMobile && this.isExpanded) {
+      this.isExpanded = false;
+    }
+  }
+
+  getNavClasses(): string {
+    const baseClasses = "left-0 rounded-r-3xl";
+
+    if (this.isMobile) {
+      return `${baseClasses} bottom-0 top-auto w-full h-auto`;
+    }
+
+    const topPosition = "top-44";
+    const width = this.isExpanded ? "w-[266px]" : "w-[66px]";
+
+    return `${baseClasses} ${topPosition} ${width}`;
+  }
 }
