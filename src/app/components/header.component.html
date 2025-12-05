@@ -1,0 +1,42 @@
+<div class="w-full h-16 flex-shrink-0 rounded-lg bg-white shadow-card flex items-center px-4 gap-3">
+      <!-- Left: Title or Breadcrumb -->
+      <div class="flex items-center gap-3 min-w-[220px]" *ngIf="!showBreadcrumb">
+        <span class="text-gray-900 text-base font-medium capitalize">{{ title }}</span>
+      </div>
+
+      <div class="flex items-center gap-2 min-w-[260px]" *ngIf="showBreadcrumb">
+        <button type="button" class="w-9 h-9 p-2 flex justify-center items-center rounded-xl bg-black/5" (click)="goBack()">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8L8 12M8 8L12 12" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <span class="text-gray-500 text-base">{{ breadcrumbParent }}</span>
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 3L9 7L5 11" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="text-gray-800 text-base font-medium capitalize">{{ title }}</span>
+      </div>
+
+      <!-- Center: Search expands -->
+      <div class="hidden md:flex flex-1 max-w-[680px] items-center bg-gray-50 rounded px-3 h-10">
+        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9549 14.4218L10.0856 9.55246C10.8412 8.57559 11.25 7.38122 11.25 6.12498C11.25 4.62123 10.6631 3.21124 9.60183 2.14812C8.54059 1.085 7.12684 0.5 5.62498 0.5C4.12311 0.5 2.70936 1.08687 1.64812 2.14812C0.584997 3.20936 0 4.62123 0 6.12498C0 7.62684 0.586872 9.04059 1.64812 10.1018C2.70936 11.165 4.12123 11.75 5.62498 11.75C6.88122 11.75 8.07372 11.3412 9.05059 10.5875L13.9199 15.4549C13.9342 15.4692 13.9512 15.4806 13.9698 15.4883C13.9885 15.496 14.0085 15.5 14.0287 15.5C14.0489 15.5 14.0689 15.496 14.0875 15.4883C14.1062 15.4806 14.1232 15.4692 14.1374 15.4549L14.9549 14.6393C14.9692 14.625 14.9806 14.6081 14.9883 14.5894C14.996 14.5708 15 14.5508 15 14.5306C15 14.5104 14.996 14.4904 14.9883 14.4717C14.9806 14.453 14.9692 14.4361 14.9549 14.4218ZM8.59496 9.09496C7.79997 9.88808 6.74622 10.325 5.62498 10.325C4.50373 10.325 3.44999 9.88808 2.65499 9.09496C1.86187 8.29997 1.42499 7.24622 1.42499 6.12498C1.42499 5.00373 1.86187 3.94811 2.65499 3.15499C3.44999 2.36187 4.50373 1.92499 5.62498 1.92499C6.74622 1.92499 7.80184 2.35999 8.59496 3.15499C9.38808 3.94999 9.82496 5.00373 9.82496 6.12498C9.82496 7.24622 9.38808 8.30184 8.59496 9.09496Z" fill="#6C6C6C" fill-opacity="0.94"/></svg>
+        <span class="text-gray-600 text-sm ml-2">Search</span>
+      </div>
+
+      <!-- Right: Notifications + Profile -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-3">
+          <div class="relative">
+            <svg width="19" height="25" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0952 19.7727H17.4167V10.1136C17.4167 6.10511 14.4677 2.79261 10.631 2.24148V1.13636C10.631 0.508523 10.1249 0 9.5 0C8.87515 0 8.36905 0.508523 8.36905 1.13636V2.24148C4.53229 2.79261 1.58333 6.10511 1.58333 10.1136V19.7727H0.904762C0.404315 19.7727 0 20.179 0 20.6818V21.5909C0 21.7159 0.101786 21.8182 0.22619 21.8182H6.33333C6.33333 23.5739 7.75268 25 9.5 25C11.2473 25 12.6667 23.5739 12.6667 21.8182H18.7738C18.8982 21.8182 19 21.7159 19 21.5909V20.6818C19 20.179 18.5957 19.7727 18.0952 19.7727ZM9.5 23.1818C8.75074 23.1818 8.14286 22.571 8.14286 21.8182H10.8571C10.8571 22.571 10.2493 23.1818 9.5 23.1818ZM3.61905 19.7727V10.1136C3.61905 8.53409 4.22976 7.05114 5.34092 5.93466C6.45208 4.81818 7.92798 4.20455 9.5 4.20455C11.072 4.20455 12.5479 4.81818 13.6591 5.93466C14.7702 7.05114 15.381 8.53409 15.381 10.1136V19.7727H3.61905Z" fill="#A9ABAD"/></svg>
+            <div class="absolute -top-1 -right-1 flex px-1.5 py-0.5 justify-center items-center rounded-xl bg-alert-500"><span class="text-white text-xs">9</span></div>
+          </div>
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.1071 2.67847H0.892857C0.398996 2.67847 0 3.07746 0 3.57132V21.4285C0 21.9223 0.398996 22.3213 0.892857 22.3213H24.1071C24.601 22.3213 25 21.9223 25 21.4285V3.57132C25 3.07746 24.601 2.67847 24.1071 2.67847ZM22.9911 5.76998V20.3124H2.00893V5.76998L1.23884 5.1701L2.33538 3.76106L3.52958 4.69019H21.4732L22.6674 3.76106L23.764 5.1701L22.9911 5.76998ZM21.4732 4.6874L12.5 11.6628L3.52679 4.6874L2.33259 3.75827L1.23605 5.16731L2.00614 5.76719L11.5374 13.1779C11.8115 13.3909 12.1487 13.5065 12.4958 13.5065C12.8429 13.5065 13.1801 13.3909 13.4542 13.1779L22.9911 5.76998L23.7612 5.1701L22.6646 3.76106L21.4732 4.6874Z" fill="#A9ABAD"/></svg>
+        </div>
+        <div class="flex items-center gap-2 md:gap-3">
+          <img class="w-8 h-8 md:w-10.5 md:h-10.5 rounded-full shadow-avatar" src="https://api.builder.io/api/v1/image/assets/TEMP/bae28f3408754dc38182cdae56eecbeebb8e4bfd?width=84" alt="User Avatar" />
+          <div class="hidden md:flex items-center gap-5">
+            <div class="flex w-34 flex-col items-start">
+              <span class="text-gray-900 text-base">Naween tharuka</span>
+              <span class="text-gray-600 text-xs">Admin</span>
+            </div>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.89507 0.5H8.90821C8.8411 0.5 8.77794 0.524414 8.73847 0.564453L5.00025 4.38867L1.26203 0.564453C1.22256 0.524414 1.1594 0.5 1.09229 0.5H0.105432C0.0199038 0.5 -0.030097 0.572266 0.0199038 0.624024L4.65945 5.37109C4.82788 5.54297 5.17262 5.54297 5.33973 5.37109L9.97928 0.624024C10.0306 0.572266 9.9806 0.5 9.89507 0.5Z" fill="#6C6C6C" fill-opacity="0.94"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>

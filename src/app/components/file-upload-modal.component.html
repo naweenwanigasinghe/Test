@@ -1,0 +1,238 @@
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+  (click)="onBackdropClick($event)"
+>
+  <div class="relative w-full max-w-[1620px] mx-auto">
+    <!-- Modal Container -->
+    <div class="relative bg-white rounded-lg shadow-2xl overflow-hidden">
+      <!-- Header with Breadcrumb -->
+      <div class="bg-white shadow-custom rounded-t-lg px-6 py-4">
+        <div class="flex items-center gap-3">
+          <button
+            (click)="onCancel()"
+            class="w-9 h-9 flex items-center justify-center rounded-xl bg-black/4 hover:bg-black/8 transition-colors"
+          >
+            <svg
+              class="w-5 h-5"
+              viewBox="0 0 19 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.875 15.4375L6.4375 10L11.875 4.5625"
+                stroke="#0B0B0B"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <span
+            class="text-[#909090] text-base font-normal font-['Poppins'] capitalize"
+          >
+            Data Template Summary
+          </span>
+          <svg
+            class="w-3 h-3 -rotate-45"
+            viewBox="0 0 13 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 12L12 1M12 1H1M12 1V12"
+              stroke="#909090"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span
+            class="text-[#909090] text-base font-normal font-['Poppins'] capitalize"
+          >
+            Submission Pending
+          </span>
+          <svg
+            class="w-3 h-3 -rotate-45"
+            viewBox="0 0 13 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 12L12 1M12 1H1M12 1V12"
+              stroke="#909090"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span
+            class="text-[#232323] text-base font-medium font-['Poppins'] capitalize"
+          >
+            Upload
+          </span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative px-10 py-5 flex flex-col items-center gap-20">
+        <h2
+          class="w-full text-lg font-medium font-['Poppins'] capitalize bg-gradient-text bg-clip-text text-transparent"
+        >
+          File Upload & Validation
+        </h2>
+
+        <!-- Upload Area -->
+        <div
+          class="w-full max-w-[1228px] flex flex-col items-center gap-[18px] px-8 py-8 rounded-[10px] border border-dashed border-[#390C90] transition-colors"
+          [class.bg-primary-50]="isDragging"
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave($event)"
+          (drop)="onDrop($event)"
+        >
+          <!-- Upload Icon -->
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/5723aa78a813ae577fc1c3473d8f7ba635295220?width=186"
+            alt="Upload"
+            class="w-[93px] h-[93px]"
+          />
+
+          <!-- Upload Text -->
+          <div class="flex flex-col items-center gap-2 w-full">
+            <h3
+              class="text-[#161616] text-xl font-semibold font-['Poppins'] capitalize text-center"
+            >
+              Upload file
+            </h3>
+            <p
+              class="text-center text-xl font-normal font-['Poppins'] capitalize bg-gradient-text bg-clip-text text-transparent"
+            >
+              Drag your file to here or click to browse
+            </p>
+            <p
+              class="text-[#7E7E7E] text-sm font-normal font-['Poppins'] capitalize text-center"
+            >
+              Accepted format: CSV, Excel | Max Size: 10 MB
+            </p>
+          </div>
+
+          <!-- Choose File Button -->
+          <label
+            class="flex items-center gap-[50px] px-2.5 py-1.5 h-[39px] rounded bg-[#290967] hover:bg-primary-700 cursor-pointer transition-colors"
+          >
+            <div class="flex items-center gap-2.5">
+              <span
+                class="text-white text-base font-medium font-['Poppins'] capitalize"
+              >
+                Choose File
+              </span>
+              <svg
+                class="w-[18px] h-[18px]"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.4062 2.8125H4.21875C3.82254 2.8125 3.44262 2.97012 3.16414 3.24859C2.88567 3.52707 2.72806 3.90699 2.72806 4.30319V13.6969C2.72806 14.0931 2.88567 14.473 3.16414 14.7515C3.44262 15.0299 3.82254 15.1875 4.21875 15.1875H13.6125C14.0087 15.1875 14.3886 15.0299 14.6671 14.7515C14.9456 14.473 15.1031 14.0931 15.1031 13.6969V7.50938L10.4062 2.8125Z"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M10.4062 2.8125V7.50938H15.1031"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <input
+              type="file"
+              accept=".csv,.xls,.xlsx"
+              (change)="onFileSelected($event)"
+              class="hidden"
+            />
+          </label>
+
+          <!-- Selected File Display -->
+          <div *ngIf="selectedFile" class="mt-4 text-center">
+            <p class="text-[#232323] text-sm font-medium font-['Poppins']">
+              Selected: {{ selectedFile.name }}
+            </p>
+            <p class="text-[#7E7E7E] text-xs font-normal font-['Poppins']">
+              {{ (selectedFile.size / 1024 / 1024).toFixed(2) }} MB
+            </p>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-[15px]">
+          <button
+            (click)="onCancel()"
+            class="flex items-center gap-2.5 w-[212px] h-[39px] px-1.5 py-1.5 justify-center rounded border border-[#CE5212] bg-white hover:bg-gray-50 transition-colors"
+          >
+            <svg
+              class="w-[18px] h-[18px]"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.0625 6.1875L6.1875 5.0625L9 7.875L11.8125 5.0625L12.9375 6.1875L10.125 9L12.9375 11.8125L11.8125 12.9375L9 10.125L6.1875 12.9375L5.0625 11.8125L7.875 9L5.0625 6.1875Z"
+                fill="#CE5212"
+              />
+            </svg>
+            <span
+              class="text-[#CE5212] text-base font-semibold font-['Poppins'] capitalize"
+            >
+              Cancel
+            </span>
+          </button>
+
+          <button
+            (click)="onProceedToSubmit()"
+            [disabled]="!selectedFile"
+            class="flex items-center gap-2.5 h-[39px] px-4 py-1.5 justify-center rounded bg-[#CE5212] hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span
+              class="text-white text-base font-medium font-['Poppins'] capitalize"
+            >
+              Proceed to Submit
+            </span>
+            <svg
+              class="w-[18px] h-[18px]"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.3125 12.9375L12.9375 7.3125L11.8125 6.1875L7.3125 10.6875L6.1875 9.5625L5.0625 10.6875L7.3125 12.9375Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Upload Requirements Section -->
+        <div
+          class="w-full max-w-[1228px] h-[225px] flex flex-col rounded border-l-[5px] border-[#F35353] bg-[rgba(243,83,83,0.06)] p-6"
+        >
+          <h3
+            class="text-[#F35353] text-xl font-medium font-['Poppins'] capitalize"
+          >
+            Upload Requirements
+          </h3>
+          <div
+            class="mt-4 text-[#F35353] text-sm font-normal font-['Poppins'] space-y-2"
+          >
+            <p>• File must be in CSV or Excel format (.csv, .xls, .xlsx)</p>
+            <p>• Maximum file size is 10 MB</p>
+            <p>• Ensure data follows the template structure</p>
+            <p>• All required fields must be filled</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

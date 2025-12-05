@@ -1,0 +1,108 @@
+<div class="fixed w-[268px] h-[calc(100vh-32px)] flex-shrink-0 rounded-md bg-gradient-primary relative overflow-hidden">
+      <!-- Hexagon Pattern Overlay -->
+      <div class="absolute inset-0 opacity-25 rounded-md bg-repeat bg-white/5"></div>
+
+      <!-- Logo -->
+      <div class="absolute left-3 right-3 top-5 h-14 flex-shrink-0">
+        <div class="w-full h-full bg-white rounded-xl shadow-card px-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded bg-gray-200 flex-shrink-0"></div>
+          <div class="flex-1">
+            <span class="block text-gray-900 text-sm font-semibold leading-tight">Public Utilities</span>
+            <span class="block text-gray-600 text-[11px] leading-tight">Commission of Sri Lanka</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Menu -->
+      <div class="absolute left-3 top-20 w-auto lg:w-58 lg:h-106 right-3 lg:right-auto py-10">
+
+        <div class="flex flex-col lg:flex-col gap-3.5">
+          <!-- Overview -->
+          <div class="flex w-58 p-2.5 rounded-lg cursor-pointer transition-colors"
+               [class.bg-teal-500]="activeRoute === 'overview'"
+               [class.hover:bg-white/10]="activeRoute !== 'overview'"
+               routerLink="/overview">
+            <div class="flex items-center gap-2">
+              <div class="w-4 h-4 rounded"
+                   [class.bg-white]="activeRoute === 'overview'"
+                   [class.bg-white/20]="activeRoute !== 'overview'"></div>
+              <span class="text-white text-base">Overview</span>
+            </div>
+          </div>
+
+          <!-- Template Management -->
+          <div class="flex w-58 p-2.5 rounded-lg cursor-pointer transition-colors"
+               [class.bg-teal-500]="activeRoute === 'template-management'"
+               [class.hover:bg-white/10]="activeRoute !== 'template-management'"
+               routerLink="/template-management">
+            <div class="flex items-center gap-1.5">
+              <div class="w-4 h-4 rounded"
+                   [class.bg-white]="activeRoute === 'template-management'"
+                   [class.bg-white/20]="activeRoute !== 'template-management'"></div>
+              <span class="text-base capitalize"
+                    [class.text-white]="activeRoute === 'template-management'"
+                    [class.text-gray-300]="activeRoute !== 'template-management'">Template Management</span>
+            </div>
+          </div>
+
+          <!-- File Management -->
+          <div class="flex w-58 p-2.5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" routerLink="/file-management">
+            <div class="flex items-center gap-1.5">
+              <div class="w-4 h-4 bg-white/20 rounded"></div>
+              <span class="text-gray-300 text-base capitalize">File Management</span>
+            </div>
+          </div>
+
+          <!-- Data File Summary -->
+          <div class="flex w-58 p-2.5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" routerLink="/admin-data-file-summary">
+            <div class="flex items-center gap-1.5">
+              <div class="w-4 h-4 bg-white/20 rounded"></div>
+              <span class="text-gray-300 text-base capitalize">Data File Summary</span>
+            </div>
+          </div>
+
+          <!-- Data Table Summary -->
+          <div class="flex p-2.5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors self-stretch" routerLink="/admin-data-table-summary">
+            <div class="flex items-center gap-1.5">
+              <div class="w-4 h-4 bg-white/20 rounded"></div>
+              <span class="text-gray-300 text-base capitalize">Data Table Summary</span>
+            </div>
+          </div>
+
+          <!-- User Role Management -->
+          <div class="flex w-58 p-2.5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" routerLink="/user-role-management">
+            <div class="flex items-center gap-1.5">
+              <div class="w-4 h-4 bg-white/20 rounded"></div>
+              <span class="text-gray-300 text-base capitalize">User Role Management</span>
+            </div>
+          </div>
+
+          <!-- Validation Rules -->
+          <div class="flex w-58 p-2.5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
+            <div class="flex items-center gap-1.5">
+              <div class="w-4 h-4 bg-white/20 rounded"></div>
+              <span class="text-gray-300 text-base capitalize">Validation Rules</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Menu -->
+      <div class="absolute left-4 bottom-6 w-auto lg:w-58 flex flex-col border border-white rounded-lg lg:h-22 right-4 lg:right-auto">
+        <!-- Settings -->
+        <div class="flex w-58 p-2.5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
+          <div class="flex items-center gap-1.5">
+            <div class="w-4 h-4 bg-white/20 rounded"></div>
+            <span class="text-gray-300 text-base capitalize">Settings</span>
+          </div>
+        </div>
+
+        <!-- Help & Support -->
+        <div class="flex w-58 p-2.5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
+          <div class="flex items-center gap-1.5">
+            <div class="w-4 h-4 bg-white/20 rounded"></div>
+            <span class="text-gray-300 text-base capitalize">Help & Support</span>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,237 @@
+<div class="min-h-screen bg-[#F4F6F8]">
+      <!-- Navigation -->
+      <app-data-submitter-navigation></app-data-submitter-navigation>
+
+      <!-- Header -->
+      <header class="bg-white shadow-custom rounded-lg mx-5 mt-5 px-6 py-4">
+        <div class="flex items-center justify-between">
+          <h1
+            class="text-[#0B0B0B] text-base font-medium font-['Poppins'] capitalize"
+          >
+            Data Table Summary
+          </h1>
+
+          <!-- Search Bar -->
+          <div
+            class="flex items-center gap-2 bg-[#F2F4F7] rounded px-3 py-2.5 w-[448px]"
+          >
+            <svg
+              class="w-4 h-4 fill-[#6C6C6C] opacity-95"
+              viewBox="0 0 15 15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.9549 13.9218L10.0856 9.05246C10.8412 8.07559 11.25 6.88122 11.25 5.62498C11.25 4.12123 10.6631 2.71124 9.60183 1.64812C8.54059 0.584997 7.12684 0 5.62498 0C4.12311 0 2.70936 0.586872 1.64812 1.64812C0.584997 2.70936 0 4.12123 0 5.62498C0 7.12684 0.586872 8.54059 1.64812 9.60183C2.70936 10.665 4.12123 11.25 5.62498 11.25C6.88122 11.25 8.07372 10.8412 9.05059 10.0875L13.9199 14.9549C13.9342 14.9692 13.9512 14.9806 13.9698 14.9883C13.9885 14.996 14.0085 15 14.0287 15C14.0489 15 14.0689 14.996 14.0875 14.9883C14.1062 14.9806 14.1232 14.9692 14.1374 14.9549L14.9549 14.1393C14.9692 14.125 14.9806 14.1081 14.9883 14.0894C14.996 14.0708 15 14.0508 15 14.0306C15 14.0104 14.996 13.9904 14.9883 13.9717C14.9806 13.953 14.9692 13.9361 14.9549 13.9218ZM8.59496 8.59496C7.79997 9.38808 6.74622 9.82496 5.62498 9.82496C4.50373 9.82496 3.44999 9.38808 2.65499 8.59496C1.86187 7.79997 1.42499 6.74622 1.42499 5.62498C1.42499 4.50373 1.86187 3.44811 2.65499 2.65499C3.44999 1.86187 4.50373 1.42499 5.62498 1.42499C6.74622 1.42499 7.80184 1.85999 8.59496 2.65499C9.38808 3.44999 9.82496 4.50373 9.82496 5.62498C9.82496 6.74622 9.38808 7.80184 8.59496 8.59496Z"
+              />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search"
+              class="bg-transparent text-sm text-[#6C6C6C] opacity-95 font-light font-['Poppins'] outline-none flex-1"
+            />
+          </div>
+
+          <!-- User Profile & Notifications -->
+          <div class="flex items-center gap-3">
+            <!-- Notification & Mail Icons -->
+            <div class="flex items-center gap-4">
+              <div class="relative">
+                <svg
+                  class="w-5 h-6 fill-[#A9ABAD]"
+                  viewBox="0 0 19 25"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.0952 19.7727H17.4167V10.1136C17.4167 6.10511 14.4677 2.79261 10.631 2.24148V1.13636C10.631 0.508523 10.1249 0 9.5 0C8.87515 0 8.36905 0.508523 8.36905 1.13636V2.24148C4.53229 2.79261 1.58333 6.10511 1.58333 10.1136V19.7727H0.904762C0.404315 19.7727 0 20.179 0 20.6818V21.5909C0 21.7159 0.101786 21.8182 0.22619 21.8182H6.33333C6.33333 23.5739 7.75268 25 9.5 25C11.2473 25 12.6667 23.5739 12.6667 21.8182H18.7738C18.8982 21.8182 19 21.7159 19 21.5909V20.6818C19 20.179 18.5957 19.7727 18.0952 19.7727ZM9.5 23.1818C8.75074 23.1818 8.14286 22.571 8.14286 21.8182H10.8571C10.8571 22.571 10.2493 23.1818 9.5 23.1818ZM3.61905 19.7727V10.1136C3.61905 8.53409 4.22976 7.05114 5.34092 5.93466C6.45208 4.81818 7.92798 4.20455 9.5 4.20455C11.072 4.20455 12.5479 4.81818 13.6591 5.93466C14.7702 7.05114 15.381 8.53409 15.381 10.1136V19.7727H3.61905Z"
+                  />
+                </svg>
+                <div
+                  class="absolute -top-1 -right-1 w-[18px] h-[18px] bg-[#DA1E28] rounded-full flex items-center justify-center"
+                >
+                  <span class="text-white text-xs font-normal">9</span>
+                </div>
+              </div>
+              <svg
+                class="w-6 h-6 fill-[#A9ABAD]"
+                viewBox="0 0 25 25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.1071 2.67847H0.892857C0.398996 2.67847 0 3.07746 0 3.57132V21.4285C0 21.9223 0.398996 22.3213 0.892857 22.3213H24.1071C24.601 22.3213 25 21.9223 25 21.4285V3.57132C25 3.07746 24.601 2.67847 24.1071 2.67847ZM22.9911 5.76998V20.3124H2.00893V5.76998L1.23884 5.1701L2.33538 3.76106L3.52958 4.69019H21.4732L22.6674 3.76106L23.764 5.1701L22.9911 5.76998ZM21.4732 4.6874L12.5 11.6628L3.52679 4.6874L2.33259 3.75827L1.23605 5.16731L2.00614 5.76719L11.5374 13.1779C11.8115 13.3909 12.1487 13.5065 12.4958 13.5065C12.8429 13.5065 13.1801 13.3909 13.4542 13.1779L22.9911 5.76998L23.7612 5.1701L22.6646 3.76106L21.4732 4.6874Z"
+                />
+              </svg>
+            </div>
+
+            <!-- User Info -->
+            <div class="flex items-center gap-3">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/6d0fdfb14db23e59332a259e103b8b309a70e867?width=84"
+                alt="User"
+                class="w-[42px] h-[42px] rounded-full shadow-avatar object-cover"
+              />
+              <div>
+                <p
+                  class="text-[#0B0B0B] text-base font-normal font-['Poppins'] capitalize"
+                >
+                  Naween tharuka
+                </p>
+                <p
+                  class="text-[#6C6C6C] opacity-95 text-xs font-light font-['Poppins'] capitalize"
+                >
+                  Data Submitter
+                </p>
+              </div>
+              <svg
+                class="w-2.5 h-1.5 fill-[#6C6C6C] opacity-95"
+                viewBox="0 0 10 5"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.89507 0H8.90821C8.8411 0 8.77794 0.0244141 8.73847 0.0644532L5.00025 3.88867L1.26203 0.0644532C1.22256 0.0244141 1.1594 0 1.09229 0H0.105432C0.0199038 0 -0.030097 0.0722657 0.0199038 0.124024L4.65945 4.87109C4.82788 5.04297 5.17262 5.04297 5.33973 4.87109L9.97928 0.124024C10.0306 0.0722657 9.9806 0 9.89507 0Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Filter/Sort Bar -->
+      <div
+        class="flex justify-between items-center mx-5 mt-5 px-4 py-4 bg-white rounded-lg shadow-custom"
+      >
+        <button
+          type="button"
+          class="flex h-10 px-3 py-1.5 items-center gap-2.5 rounded bg-[#F0F0F0]"
+        >
+          <span
+            class="text-[#434343] text-base font-medium font-['Poppins'] capitalize"
+            >Filters</span
+          >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 7.5H15M6 12H15M0 3H15"
+              stroke="#6B7280"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="flex h-10 px-3 py-1.5 items-center gap-2.5 rounded bg-[#F0F0F0]"
+        >
+          <span
+            class="text-[#434343] text-base font-medium font-['Poppins'] capitalize"
+            >Sort By</span
+          >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 7.5H15M6 12H15M0 3H15"
+              stroke="#6B7280"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Main Content -->
+      <main class="mx-[92px] mt-8 mb-24">
+        <div class="bg-white rounded-lg shadow-custom px-8 py-8">
+          <div class="flex flex-col gap-5">
+            <div
+              *ngFor="let item of items"
+              class="flex justify-between items-center px-4 py-4 bg-[#F2F4F7] rounded-lg border-l-4 border-[#F35353]"
+            >
+              <!-- Left Section -->
+              <div class="flex flex-col gap-2">
+                <h3
+                  class="text-[#232323] text-base font-medium font-['Poppins'] capitalize"
+                >
+                  NM_{{ item.id }} ({{ item.name }})
+                </h3>
+                <p
+                  class="text-[#212121] text-sm font-normal font-['Poppins'] capitalize"
+                >
+                  {{ item.subRef }} Schedule: {{ item.schedule }} Due:
+                  {{ item.due }}
+                </p>
+                <div class="flex items-center gap-3">
+                  <div
+                    *ngFor="let tag of item.tags"
+                    class="flex px-2.5 py-1 justify-center items-center gap-2.5 rounded border"
+                    [style.border-color]="tag.borderColor"
+                    [style.background]="tag.bgColor"
+                  >
+                    <span
+                      class="text-xs font-normal font-['Poppins'] capitalize"
+                      [style.color]="tag.color"
+                    >
+                      {{ tag.label }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Section - Action Buttons -->
+              <div class="flex items-center gap-3">
+                <button
+                  class="flex w-36 h-8 px-2.5 py-1.5 justify-center items-center gap-2 rounded-lg bg-white"
+                >
+                  <span
+                    class="text-[#080114] text-center text-sm font-normal font-['Poppins'] capitalize"
+                  >
+                    Manual
+                  </span>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/5472228bb04ab304a3a93f096314ef5177b8f905?width=38"
+                    alt=""
+                    class="w-5 h-5"
+                  />
+                </button>
+                <button
+                  class="flex w-36 h-8 px-2.5 py-1.5 justify-center items-center gap-2 rounded-lg bg-white"
+                >
+                  <span
+                    class="text-[#080114] text-center text-sm font-normal font-['Poppins'] capitalize"
+                  >
+                    History
+                  </span>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/efcde6b4e16499f6b431de8ed86ee02dc0110fb4?width=38"
+                    alt=""
+                    class="w-5 h-5"
+                  />
+                </button>
+                <button
+                  class="flex w-36 h-8 px-2.5 py-1.5 justify-center items-center gap-2 rounded-lg bg-white"
+                >
+                  <span
+                    class="text-[#080114] text-center text-sm font-normal font-['Poppins'] capitalize"
+                  >
+                    Download
+                  </span>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/e8abcc41aa5a9950b72172e59e2b22d4e335b683?width=38"
+                    alt=""
+                    class="w-5 h-5"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>

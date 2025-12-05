@@ -1,0 +1,122 @@
+<div class="h-screen flex bg-gray-100">
+      <!-- Fixed Navigation Sidebar -->
+      <div class="fixed left-0 top-0 h-screen w-full md:w-72 flex-shrink-0 p-3 md:p-4 overflow-hidden z-40">
+        <app-navigation></app-navigation>
+      </div>
+
+      <!-- Main Content Area with Scroll -->
+      <div class="flex-1 ml-0 md:ml-72 p-4 md:p-6 lg:p-8 overflow-y-auto h-screen">
+        <!-- Header -->
+        <app-header [title]="'User Role Management'"></app-header>
+
+        <!-- Action Bar -->
+        <div class="relative flex w-full p-4 justify-between items-center rounded-lg bg-white shadow-card mt-6 min-h-14">
+          <button type="button" class="flex h-10 px-3 py-1.5 items-center gap-2 rounded bg-gray-100 hover:bg-gray-200">
+            <span class="text-gray-700 text-base font-medium">Filters</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 7.5L15 7.5M6 12L15 12M0 3L15 3" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <div class="flex items-center gap-3">
+            <button type="button" class="flex h-10 px-3 py-1.5 items-center gap-2 rounded bg-gray-100 hover:bg-gray-200">
+              <span class="text-gray-700 text-base font-medium">Settings</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 11.25C10.2426 11.25 11.25 10.2426 11.25 9C11.25 7.75736 10.2426 6.75 9 6.75C7.75736 6.75 6.75 7.75736 6.75 9C6.75 10.2426 7.75736 11.25 9 11.25Z" stroke="#6B7280" stroke-width="1.5"/>
+                <path d="M14.3175 11.25C14.1405 11.5923 14.1405 12.0077 14.3175 12.35L14.9887 13.5C15.1657 13.8423 15.5812 14.0077 15.9275 13.85L16.6987 13.5C17.0449 13.3423 17.2895 12.9846 17.2895 12.6V11.4C17.2895 11.0154 17.0449 10.6577 16.6987 10.5L15.9275 10.15C15.5812 9.99231 15.1657 10.1577 14.9887 10.5L14.3175 11.25Z" stroke="#6B7280" stroke-width="1.5"/>
+              </svg>
+            </button>
+            <button type="button" class="flex h-10 px-3 py-1.5 items-center gap-2 rounded bg-orange-500 hover:bg-orange-600" (click)="openNewUser()">
+              <span class="text-white text-base font-medium">New User</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 3.75V14.25M3.75 9H14.25" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Segmented Tabs -->
+        <div class="flex w-full items-center rounded-full bg-gray-100 shadow-card mt-5 min-h-12 p-1">
+          <button type="button" (click)="setTab('all')" class="px-6 h-10 flex items-center rounded-full" [ngClass]="activeTab==='all' ? 'bg-white shadow-card text-primary-600 font-semibold' : 'text-gray-500'">All ({{ counts.all }})</button>
+          <button type="button" (click)="setTab('active')" class="px-6 h-10 flex items-center rounded-full" [ngClass]="activeTab==='active' ? 'bg-white shadow-card text-primary-600 font-semibold' : 'text-gray-500'">Active ({{ counts.active }})</button>
+          <button type="button" (click)="setTab('inactive')" class="px-6 h-10 flex items-center rounded-full" [ngClass]="activeTab==='inactive' ? 'bg-white shadow-card text-primary-600 font-semibold' : 'text-gray-500'">Inactive ({{ counts.inactive }})</button>
+        </div>
+
+        <!-- Users Table -->
+        <div class="flex p-6 items-start rounded-lg bg-white mt-5 w-full">
+          <div class="flex w-full flex-col gap-4">
+            <div class="overflow-auto rounded-lg">
+              <table class="w-full text-sm">
+                <thead class="text-gray-500">
+                  <tr class="border-b">
+                    <th class="py-2 text-left font-medium w-10"></th>
+                    <th class="py-2 text-left font-medium">User Name</th>
+                    <th class="py-2 text-left font-medium">User Role</th>
+                    <th class="py-2 text-left font-medium">Organization</th>
+                    <th class="py-2 text-left font-medium">Account Type</th>
+                    <th class="py-2 text-left font-medium">Status</th>
+                    <th class="py-2 text-left font-medium">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let u of filteredUsers; let i=index" class="border-b">
+                    <td class="py-3 align-top"><input type="checkbox" class="w-4 h-4 accent-primary-600 rounded border-gray-400" /></td>
+                    <td class="py-3">
+                      <div class="text-gray-800">{{ u.name }}</div>
+                      <div class="text-gray-500 text-xs">{{ u.email }}</div>
+                    </td>
+                    <td class="py-3">{{ u.roles.join(', ') }}</td>
+                    <td class="py-3">{{ u.organization }}</td>
+                    <td class="py-3">{{ u.accountType }}</td>
+                    <td class="py-3">
+                      <button type="button" class="w-[59px] h-[25px] rounded-full bg-gray-100 relative" (click)="toggleActive(u)">
+                        <div class="w-5 h-5 rounded-full absolute top-1 transition-all" [ngClass]="u.active ? 'bg-primary-600 right-1' : 'bg-gray-300 left-1'"></div>
+                      </button>
+                    </td>
+                    <td class="py-3">
+                      <div class="flex gap-2">
+                        <button type="button" class="w-7 h-7 rounded border bg-white"></button>
+                        <button type="button" class="w-7 h-7 rounded border bg-white" (click)="deleteAt(i)"></button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- New User Modal -->
+        <div *ngIf="showNewUser" class="fixed inset-0 bg-black/40 z-40 flex items-center justify-center p-4">
+          <div class="w-full max-w-3xl rounded-lg bg-white shadow-2xl p-6 relative">
+            <button type="button" (click)="closeNewUser()" class="absolute right-4 top-4 w-8 h-8 rounded-md border bg-white">✕</button>
+            <form [formGroup]="newUserForm" class="flex flex-col gap-8" (ngSubmit)="submitNewUser()">
+              <div class="text-gray-900 text-base font-medium">Personal Information</div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="w-full">
+                  <label class="block text-sm text-gray-700 mb-1">User</label>
+                  <div class="flex items-center gap-2">
+                    <input type="text" class="w-full h-10 rounded-md bg-gray-50 border border-gray-200 px-3" placeholder="Search" formControlName="name" />
+                    <div class="w-10 h-10 grid place-items-center rounded-md border bg-white">
+                      <svg width="18" height="18" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9549 14.4218L10.0856 9.55246C10.8412 8.57559 11.25 7.38122 11.25 6.12498C11.25 4.62123 10.6631 3.21124 9.60183 2.14812C8.54059 1.085 7.12684 0.5 5.62498 0.5C4.12311 0.5 2.70936 1.08687 1.64812 2.14812C0.584997 3.20936 0 4.62123 0 6.12498C0 7.62684 0.586872 9.04059 1.64812 10.1018C2.70936 11.165 4.12123 11.75 5.62498 11.75C6.88122 11.75 8.07372 11.3412 9.05059 10.5875L13.9199 15.4549C13.9342 15.4692 13.9512 15.4806 13.9698 15.4883C13.9885 15.496 14.0085 15.5 14.0287 15.5C14.0489 15.5 14.0689 15.496 14.0875 15.4883C14.1062 15.4806 14.1232 15.4692 14.1374 15.4549L14.9549 14.6393C14.9692 14.625 14.9806 14.6081 14.9883 14.5894C14.996 14.5708 15 14.5508 15 14.5306C15 14.5104 14.996 14.4904 14.9883 14.4717C14.9806 14.453 14.9692 14.4361 14.9549 14.4218ZM8.59496 9.09496C7.79997 9.88808 6.74622 10.325 5.62498 10.325C4.50373 10.325 3.44999 9.88808 2.65499 9.09496C1.86187 8.29997 1.42499 7.24622 1.42499 6.12498C1.42499 5.00373 1.86187 3.94811 2.65499 3.15499C3.44999 2.36187 4.50373 1.92499 5.62498 1.92499C6.74622 1.92499 7.80184 2.35999 8.59496 3.15499C9.38808 3.94999 9.82496 5.00373 9.82496 6.12498C9.82496 7.24622 9.38808 8.30184 8.59496 9.09496Z" fill="#6C6C6C" fill-opacity="0.94"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full">
+                  <label class="block text-sm text-gray-700 mb-1">Email Address</label>
+                  <input type="email" class="w-full h-10 rounded-md bg-gray-50 border border-gray-200 px-3" placeholder="name@example.com" formControlName="email" />
+                </div>
+              </div>
+
+              <div class="text-gray-900 text-base font-medium">System Access & Permission</div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4" formControlName="roleSubmitter"/><span>Data Submitter</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4" formControlName="roleViewer"/><span>Data Viewer</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4" formControlName="roleAccepter"/><span>Data Accepter</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4" formControlName="roleAdmin"/><span>Admin</span></label>
+              </div>
+
+              <div class="flex justify-end"><button type="submit" class="h-10 px-6 rounded-md bg-orange-500 text-white">Add</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
