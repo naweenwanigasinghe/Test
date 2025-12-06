@@ -2,11 +2,19 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { DataSubmitterNavigationComponent } from "../components/data-submitter-navigation.component";
+import { AcceptanceModalComponent } from "../components/acceptance-modal.component";
+import { HistoryModalComponent } from "../components/history-modal.component";
 
 @Component({
   selector: "app-access-review",
   standalone: true,
-  imports: [CommonModule, RouterModule, DataSubmitterNavigationComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    DataSubmitterNavigationComponent,
+    AcceptanceModalComponent,
+    HistoryModalComponent,
+  ],
   templateUrl: "./access-review.component.html",
 })
 export class AccessReviewComponent {
@@ -20,8 +28,8 @@ export class AccessReviewComponent {
       status: "Review Pending",
       tags: [
         { label: "Energy", color: "#F35353" },
-        { label: "Operational", color: "#128ECE" },
-        { label: "Electricity", color: "#12CEB0" },
+        { label: "Renewables", color: "#12CEB0" },
+        { label: "Net Metering", color: "#128ECE" },
       ],
     },
     {
@@ -33,21 +41,56 @@ export class AccessReviewComponent {
       status: "Review Pending",
       tags: [
         { label: "Energy", color: "#F35353" },
-        { label: "Operational", color: "#128ECE" },
-        { label: "Electricity", color: "#12CEB0" },
+        { label: "Renewables", color: "#12CEB0" },
+        { label: "Net Metering", color: "#128ECE" },
       ],
     },
   ];
 
+  isModalOpen = false;
+  isHistoryModalOpen = false;
+  selectedSubmission: any = null;
+
   onView(submission: any) {
-    console.log("View submission:", submission);
+    this.selectedSubmission = submission;
+    this.isModalOpen = true;
   }
 
   onHistory(submission: any) {
-    console.log("View history:", submission);
+    this.selectedSubmission = submission;
+    this.isHistoryModalOpen = true;
   }
 
   onDownload(submission: any) {
     console.log("Download submission:", submission);
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    this.selectedSubmission = null;
+  }
+
+  closeHistoryModal() {
+    this.isHistoryModalOpen = false;
+    this.selectedSubmission = null;
+  }
+
+  onAccept() {
+    console.log("Accept submission:", this.selectedSubmission);
+    this.closeModal();
+  }
+
+  onReject() {
+    console.log("Reject submission:", this.selectedSubmission);
+    this.closeModal();
+  }
+
+  onModalDownload() {
+    console.log("Download from modal:", this.selectedSubmission);
+  }
+
+  onSaveAsDraft() {
+    console.log("Save as draft:", this.selectedSubmission);
+    this.closeModal();
   }
 }
