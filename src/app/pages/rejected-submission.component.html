@@ -413,6 +413,27 @@
     </div>
   </main>
 
+  <!-- Rejection Modal -->
+  <app-rejection-modal
+    [isOpen]="showRejectionModal"
+    [submission]="selectedSubmission"
+    (close)="showRejectionModal = false"
+  ></app-rejection-modal>
+
+  <!-- History Modal -->
+  <app-history-modal
+    [isOpen]="showHistoryModal"
+    [submission]="selectedSubmission"
+    (close)="showHistoryModal = false"
+  ></app-history-modal>
+
+  <!-- File Upload Modal -->
+  <app-file-upload-modal
+    *ngIf="showFileUploadModal"
+    [submission]="selectedSubmission"
+    (close)="showFileUploadModal = false"
+  ></app-file-upload-modal>
+
   <!-- Template Manual Modal -->
   <app-template-manual-modal
     *ngIf="showManualModal"

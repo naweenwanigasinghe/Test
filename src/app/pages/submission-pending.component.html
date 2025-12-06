@@ -260,6 +260,7 @@
             </button>
 
             <button
+              (click)="openHistoryModal(submission)"
               class="flex items-center justify-center gap-2 px-2.5 py-1.5 h-[33px] rounded-lg bg-white hover:bg-gray-50 transition-colors"
             >
               <span
@@ -376,6 +377,13 @@
     (close)="closeUploadModal()"
     (fileSubmit)="handleFileSubmit($event)"
   ></app-file-upload-modal>
+
+  <!-- History Modal -->
+  <app-history-modal
+    [isOpen]="showHistoryModal"
+    [submission]="selectedSubmission"
+    (close)="closeHistoryModal()"
+  ></app-history-modal>
 
   <!-- Template Manual Modal -->
   <app-template-manual-modal

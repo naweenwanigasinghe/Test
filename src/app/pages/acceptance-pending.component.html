@@ -256,6 +256,7 @@
             </button>
 
             <button
+              (click)="openHistoryModal(submission)"
               class="flex items-center justify-center gap-2 px-2.5 py-1.5 h-[33px] rounded-lg bg-white hover:bg-gray-50 transition-colors"
             >
               <span
@@ -363,4 +364,11 @@
       </div>
     </div>
   </main>
+
+  <!-- History Modal -->
+  <app-history-modal
+    [isOpen]="showHistoryModal"
+    [submission]="selectedSubmission"
+    (close)="closeHistoryModal()"
+  ></app-history-modal>
 </div>

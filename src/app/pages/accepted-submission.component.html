@@ -381,6 +381,13 @@
     </div>
   </main>
 
+  <!-- History Modal -->
+  <app-history-modal
+    [isOpen]="showHistoryModal"
+    [submission]="selectedSubmission"
+    (close)="closeHistoryModal()"
+  ></app-history-modal>
+
   <!-- Template Manual Modal -->
   <app-template-manual-modal
     *ngIf="showManualModal"
