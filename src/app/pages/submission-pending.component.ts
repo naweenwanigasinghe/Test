@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { DataSubmitterNavigationComponent } from "../components/data-submitter-navigation.component";
 import { FileUploadModalComponent } from "../components/file-upload-modal.component";
 import { TemplateManualModalComponent } from "../components/template-manual-modal.component";
+import { HistoryModalComponent } from "../components/history-modal.component";
 
 @Component({
   selector: "app-submission-pending",
@@ -14,12 +15,14 @@ import { TemplateManualModalComponent } from "../components/template-manual-moda
     DataSubmitterNavigationComponent,
     FileUploadModalComponent,
     TemplateManualModalComponent,
+    HistoryModalComponent,
   ],
   templateUrl: "./submission-pending.component.html",
 })
 export class SubmissionPendingComponent {
   showUploadModal = false;
   showManualModal = false;
+  showHistoryModal = false;
   selectedSubmission: any = null;
 
   submissions = [
@@ -122,6 +125,16 @@ export class SubmissionPendingComponent {
 
   closeManualModal() {
     this.showManualModal = false;
+    this.selectedSubmission = null;
+  }
+
+  openHistoryModal(submission: any) {
+    this.selectedSubmission = submission;
+    this.showHistoryModal = true;
+  }
+
+  closeHistoryModal() {
+    this.showHistoryModal = false;
     this.selectedSubmission = null;
   }
 

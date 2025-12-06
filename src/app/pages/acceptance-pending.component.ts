@@ -2,14 +2,18 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { DataSubmitterNavigationComponent } from "../components/data-submitter-navigation.component";
+import { HistoryModalComponent } from "../components/history-modal.component";
 
 @Component({
   selector: "app-acceptance-pending",
   standalone: true,
-  imports: [CommonModule, RouterModule, DataSubmitterNavigationComponent],
+  imports: [CommonModule, RouterModule, DataSubmitterNavigationComponent, HistoryModalComponent],
   templateUrl: "./acceptance-pending.component.html",
 })
 export class AcceptancePendingComponent {
+  showHistoryModal = false;
+  selectedSubmission: any = null;
+
   submissions = [
     {
       id: "NM_202406",
@@ -67,4 +71,14 @@ export class AcceptancePendingComponent {
       ],
     },
   ];
+
+  openHistoryModal(submission: any) {
+    this.selectedSubmission = submission;
+    this.showHistoryModal = true;
+  }
+
+  closeHistoryModal() {
+    this.showHistoryModal = false;
+    this.selectedSubmission = null;
+  }
 }

@@ -5,6 +5,7 @@ import { DataSubmitterNavigationComponent } from "../components/data-submitter-n
 import { TemplateManualModalComponent } from "../components/template-manual-modal.component";
 import { RejectionModalComponent } from "../components/rejection-modal.component";
 import { HistoryModalComponent } from "../components/history-modal.component";
+import { FileUploadModalComponent } from "../components/file-upload-modal.component";
 
 @Component({
   selector: "app-rejected-submission",
@@ -16,6 +17,7 @@ import { HistoryModalComponent } from "../components/history-modal.component";
     TemplateManualModalComponent,
     RejectionModalComponent,
     HistoryModalComponent,
+    FileUploadModalComponent,
   ],
   templateUrl: "./rejected-submission.component.html",
 })
@@ -23,6 +25,7 @@ export class RejectedSubmissionComponent {
   showManualModal = false;
   showRejectionModal = false;
   showHistoryModal = false;
+  showFileUploadModal = false;
   selectedSubmission: any = null;
 
   rejectedSubmissions = [
@@ -111,7 +114,8 @@ export class RejectedSubmissionComponent {
   }
 
   onResubmit(submission: any) {
-    console.log("Resubmit submission:", submission);
+    this.selectedSubmission = submission;
+    this.showFileUploadModal = true;
   }
 
   openManualModal(submission: any) {

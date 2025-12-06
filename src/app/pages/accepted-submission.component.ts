@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { DataSubmitterNavigationComponent } from "../components/data-submitter-navigation.component";
 import { TemplateManualModalComponent } from "../components/template-manual-modal.component";
+import { HistoryModalComponent } from "../components/history-modal.component";
 
 @Component({
   selector: "app-accepted-submission",
@@ -12,11 +13,13 @@ import { TemplateManualModalComponent } from "../components/template-manual-moda
     RouterModule,
     DataSubmitterNavigationComponent,
     TemplateManualModalComponent,
+    HistoryModalComponent,
   ],
   templateUrl: "./accepted-submission.component.html",
 })
 export class AcceptedSubmissionComponent {
   showManualModal = false;
+  showHistoryModal = false;
   selectedSubmission: any = null;
 
   acceptedSubmissions = [
@@ -155,7 +158,8 @@ export class AcceptedSubmissionComponent {
   }
 
   onHistory(submission: any) {
-    console.log("View history:", submission);
+    this.selectedSubmission = submission;
+    this.showHistoryModal = true;
   }
 
   onDownload(submission: any) {
@@ -169,6 +173,11 @@ export class AcceptedSubmissionComponent {
 
   closeManualModal() {
     this.showManualModal = false;
+    this.selectedSubmission = null;
+  }
+
+  closeHistoryModal() {
+    this.showHistoryModal = false;
     this.selectedSubmission = null;
   }
 }

@@ -427,6 +427,13 @@
     (close)="showHistoryModal = false"
   ></app-history-modal>
 
+  <!-- File Upload Modal -->
+  <app-file-upload-modal
+    *ngIf="showFileUploadModal"
+    [submission]="selectedSubmission"
+    (close)="showFileUploadModal = false"
+  ></app-file-upload-modal>
+
   <!-- Template Manual Modal -->
   <app-template-manual-modal
     *ngIf="showManualModal"
