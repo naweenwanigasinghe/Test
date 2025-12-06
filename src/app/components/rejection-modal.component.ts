@@ -16,14 +16,70 @@ export class RejectionModalComponent {
   @Output() proceedToResubmit = new EventEmitter<void>();
 
   tableData = [
-    { row: 1, installationId: "", capacity: "", installationDate: "", comments: "", hasError: false },
-    { row: 2, installationId: "", capacity: "", installationDate: "", comments: "", hasError: true },
-    { row: 3, installationId: "", capacity: "", installationDate: "", comments: "", hasError: false },
-    { row: 4, installationId: "", capacity: "", installationDate: "", comments: "", hasError: true },
-    { row: 5, installationId: "", capacity: "", installationDate: "", comments: "", hasError: false },
-    { row: 6, installationId: "", capacity: "", installationDate: "", comments: "", hasError: true },
-    { row: 7, installationId: "", capacity: "", installationDate: "", comments: "", hasError: false },
-    { row: 8, installationId: "", capacity: "", installationDate: "", comments: "", hasError: false },
+    {
+      row: 1,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: false,
+    },
+    {
+      row: 2,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: true,
+    },
+    {
+      row: 3,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: false,
+    },
+    {
+      row: 4,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: true,
+    },
+    {
+      row: 5,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: false,
+    },
+    {
+      row: 6,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: true,
+    },
+    {
+      row: 7,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: false,
+    },
+    {
+      row: 8,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+      hasError: false,
+    },
   ];
 
   generalRejectionComment = "";

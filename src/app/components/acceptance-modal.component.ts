@@ -18,14 +18,62 @@ export class AcceptanceModalComponent {
   @Output() saveAsDraft = new EventEmitter<void>();
 
   tableData = [
-    { row: 1, installationId: "", capacity: "", installationDate: "", comments: "" },
-    { row: 2, installationId: "", capacity: "", installationDate: "", comments: "" },
-    { row: 3, installationId: "", capacity: "", installationDate: "", comments: "" },
-    { row: 4, installationId: "", capacity: "", installationDate: "", comments: "" },
-    { row: 5, installationId: "", capacity: "", installationDate: "", comments: "" },
-    { row: 6, installationId: "", capacity: "", installationDate: "", comments: "" },
-    { row: 7, installationId: "", capacity: "", installationDate: "", comments: "" },
-    { row: 8, installationId: "", capacity: "", installationDate: "", comments: "" },
+    {
+      row: 1,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
+    {
+      row: 2,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
+    {
+      row: 3,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
+    {
+      row: 4,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
+    {
+      row: 5,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
+    {
+      row: 6,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
+    {
+      row: 7,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
+    {
+      row: 8,
+      installationId: "",
+      capacity: "",
+      installationDate: "",
+      comments: "",
+    },
   ];
 
   generalComment = "";
