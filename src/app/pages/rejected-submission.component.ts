@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { DataSubmitterNavigationComponent } from "../components/data-submitter-navigation.component";
 import { TemplateManualModalComponent } from "../components/template-manual-modal.component";
+import { RejectionModalComponent } from "../components/rejection-modal.component";
 
 @Component({
   selector: "app-rejected-submission",
@@ -12,11 +13,13 @@ import { TemplateManualModalComponent } from "../components/template-manual-moda
     RouterModule,
     DataSubmitterNavigationComponent,
     TemplateManualModalComponent,
+    RejectionModalComponent,
   ],
   templateUrl: "./rejected-submission.component.html",
 })
 export class RejectedSubmissionComponent {
   showManualModal = false;
+  showRejectionModal = false;
   selectedSubmission: any = null;
 
   rejectedSubmissions = [
@@ -87,7 +90,8 @@ export class RejectedSubmissionComponent {
   ];
 
   onView(submission: any) {
-    console.log("View submission:", submission);
+    this.selectedSubmission = submission;
+    this.showRejectionModal = true;
   }
 
   onHistory(submission: any) {
@@ -114,5 +118,19 @@ export class RejectedSubmissionComponent {
   closeManualModal() {
     this.showManualModal = false;
     this.selectedSubmission = null;
+  }
+
+  closeRejectionModal() {
+    this.showRejectionModal = false;
+    this.selectedSubmission = null;
+  }
+
+  onDownloadErrorReport() {
+    console.log("Download error report:", this.selectedSubmission);
+  }
+
+  onProceedToResubmit() {
+    console.log("Proceed to resubmit:", this.selectedSubmission);
+    this.closeRejectionModal();
   }
 }
