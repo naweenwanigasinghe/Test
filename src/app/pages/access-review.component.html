@@ -355,3 +355,14 @@
     </div>
   </main>
 </div>
+
+<!-- Acceptance Modal -->
+<app-acceptance-modal
+  [isOpen]="isModalOpen"
+  [submission]="selectedSubmission"
+  (close)="closeModal()"
+  (accept)="onAccept()"
+  (reject)="onReject()"
+  (download)="onModalDownload()"
+  (saveAsDraft)="onSaveAsDraft()"
+></app-acceptance-modal>
