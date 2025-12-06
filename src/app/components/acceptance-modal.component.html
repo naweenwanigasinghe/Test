@@ -1,0 +1,322 @@
+<!-- Modal Backdrop -->
+<div
+  *ngIf="isOpen"
+  class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+  (click)="onBackdropClick($event)"
+>
+  <!-- Modal Content -->
+  <div
+    class="bg-white rounded-2xl max-w-[1600px] w-full max-h-[95vh] overflow-y-auto shadow-2xl"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="p-6 lg:p-8 xl:p-12">
+      <!-- Header Section -->
+      <div
+        class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8"
+      >
+        <!-- Left: Title and Details -->
+        <div class="flex items-start gap-5">
+          <div class="flex flex-col gap-2">
+            <h2
+              class="text-[#232323] text-base font-medium font-['Poppins'] capitalize"
+            >
+              {{ submission?.id }} ({{ submission?.title }})
+            </h2>
+            <p
+              class="text-[#6C6C6C] text-sm font-normal font-['Poppins'] capitalize"
+            >
+              {{ submission?.subId }}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <span
+                *ngFor="let tag of submission?.tags"
+                class="flex items-center justify-center px-2 py-1 rounded border-[0.25px] text-[10px] font-normal font-['Poppins'] capitalize"
+                [style.borderColor]="tag.color"
+                [style.color]="tag.color"
+              >
+                {{ tag.label }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Submission Info -->
+        <div class="flex flex-col items-start lg:items-end gap-3">
+          <p
+            class="text-[#212121] text-sm font-normal font-['Poppins'] capitalize"
+          >
+            Submitted: {{ submission?.submittedDate }}
+          </p>
+          <p
+            class="text-[#212121] text-sm font-normal font-['Poppins'] capitalize"
+          >
+            Submitted by: Solar Max
+          </p>
+        </div>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-6">
+        <!-- Left Column -->
+        <div class="flex flex-col gap-6">
+          <!-- Data Table -->
+          <div
+            class="border border-dashed border-[#290967] rounded-2xl overflow-hidden"
+          >
+            <div class="p-4 lg:p-6">
+              <!-- Table Header -->
+              <div class="flex items-center justify-between mb-4">
+                <h3
+                  class="text-[#080114] text-sm font-semibold font-['Poppins'] capitalize"
+                >
+                  Data Table
+                </h3>
+                <button
+                  class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-primary-100 transition-colors"
+                >
+                  <svg
+                    class="w-8 h-8"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M28.2495 3.4323L21.4924 4.27159C21.2567 4.30016 21.1603 4.58587 21.3245 4.75373L23.2781 6.7073L17.796 12.1894C17.7428 12.2431 17.713 12.3157 17.713 12.3912C17.713 12.4668 17.7428 12.5393 17.796 12.593L19.4067 14.2037C19.5174 14.3144 19.6995 14.3144 19.8103 14.2037L25.296 8.71802L27.2495 10.6716C27.2872 10.7093 27.3348 10.7355 27.3867 10.7474C27.4387 10.7593 27.4929 10.7564 27.5432 10.7388C27.5936 10.7213 27.6379 10.69 27.6713 10.6484C27.7046 10.6068 27.7255 10.5567 27.7317 10.5037L28.5674 3.75016C28.5733 3.70703 28.5692 3.66312 28.5553 3.62186C28.5414 3.5806 28.5182 3.54311 28.4874 3.51233C28.4566 3.48154 28.4191 3.4583 28.3779 3.44442C28.3366 3.43054 28.2927 3.42639 28.2495 3.4323ZM12.5924 17.7966C12.5387 17.7434 12.4662 17.7136 12.3906 17.7136C12.315 17.7136 12.2425 17.7434 12.1888 17.7966L6.70669 23.2823L4.75312 21.3287C4.71543 21.2911 4.66788 21.2648 4.61594 21.2529C4.56399 21.241 4.50974 21.244 4.45942 21.2615C4.40909 21.279 4.36472 21.3104 4.33139 21.3519C4.29806 21.3935 4.27712 21.4437 4.27098 21.4966L3.43169 28.2502C3.41026 28.4359 3.56383 28.5894 3.74955 28.568L10.5067 27.7287C10.7424 27.7002 10.8388 27.4144 10.6745 27.2466L8.72098 25.293L14.2067 19.8073C14.3174 19.6966 14.3174 19.5144 14.2067 19.4037L12.5924 17.7966Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Scrollable Table Container -->
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse min-w-[800px]">
+                  <thead>
+                    <tr>
+                      <th
+                        class="border border-border-light text-black text-base font-medium font-['Poppins'] capitalize p-3 text-center"
+                      >
+                        Row#
+                      </th>
+                      <th
+                        class="border border-border-light text-black text-base font-medium font-['Poppins'] capitalize p-3 text-center"
+                      >
+                        Installation ID
+                      </th>
+                      <th
+                        class="border border-border-light text-black text-base font-medium font-['Poppins'] capitalize p-3 text-center"
+                      >
+                        Capacity (kW)
+                      </th>
+                      <th
+                        class="border border-border-light text-black text-base font-medium font-['Poppins'] capitalize p-3 text-center"
+                      >
+                        Installation Date
+                      </th>
+                      <th
+                        class="border border-border-light text-black text-base font-medium font-['Poppins'] capitalize p-3 text-center"
+                      >
+                        Comments
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let row of tableData">
+                      <td
+                        class="border border-border-light p-3 h-12 text-center"
+                      ></td>
+                      <td
+                        class="border border-border-light p-3 h-12 text-center"
+                      ></td>
+                      <td
+                        class="border border-border-light p-3 h-12 text-center"
+                      ></td>
+                      <td
+                        class="border border-border-light p-3 h-12 text-center"
+                      ></td>
+                      <td
+                        class="border border-border-light p-3 h-12 text-center"
+                      ></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Comment -->
+          <div
+            class="border border-dashed border-[#290967] rounded-2xl p-6 lg:p-8"
+          >
+            <label
+              class="block text-black text-sm font-semibold font-['Poppins'] opacity-80 mb-2"
+            >
+              General Comment
+            </label>
+            <textarea
+              [(ngModel)]="generalComment"
+              class="w-full h-32 resize-none border-b border-[#C1C7CD] outline-none focus:border-primary-500 transition-colors text-sm font-['Poppins'] p-2"
+              placeholder="Enter your comment here..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="flex flex-col gap-6">
+          <!-- Comments Section -->
+          <div
+            class="border border-dashed border-[#290967] rounded-2xl p-6 flex-1 min-h-[481px]"
+          >
+            <h3
+              class="text-[#080114] text-sm font-semibold font-['Poppins'] capitalize"
+            >
+              Comments
+            </h3>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col gap-3">
+            <!-- Download Button -->
+            <button
+              (click)="onDownload()"
+              class="flex items-center justify-center gap-2 w-full h-[33px] rounded-lg border border-[#080114] hover:bg-gray-50 transition-colors"
+            >
+              <span
+                class="text-[#080114] text-center text-sm font-normal font-['Poppins'] capitalize"
+              >
+                Download
+              </span>
+              <svg
+                class="w-[19px] h-[19px]"
+                viewBox="0 0 19 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.625 11.875V15.0417C16.625 15.4637 16.4574 15.8684 16.1589 16.1668C15.8605 16.4653 15.4558 16.6329 15.0337 16.6329H3.96667C3.54464 16.6329 3.13993 16.4653 2.84143 16.1668C2.54293 15.8684 2.375 15.4637 2.375 15.0417V11.875"
+                  stroke="#080114"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5.54167 7.91667L9.5 11.875L13.4583 7.91667"
+                  stroke="#080114"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9.5 11.875V2.375"
+                  stroke="#080114"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <!-- Save as Draft Button -->
+            <button
+              (click)="onSaveAsDraft()"
+              class="flex items-center justify-center gap-2 w-full h-[33px] rounded-lg border border-[#080114] hover:bg-gray-50 transition-colors"
+            >
+              <span
+                class="text-[#080114] text-center text-sm font-normal font-['Poppins'] capitalize"
+              >
+                Save as draft
+              </span>
+              <svg
+                class="w-[19px] h-[19px]"
+                viewBox="0 0 19 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.25 16.625H4.75C4.32799 16.625 3.92339 16.4574 3.62489 16.1589C3.32639 15.8604 3.15833 15.4558 3.15833 15.0337V3.96667C3.15833 3.54464 3.32639 3.13993 3.62489 2.84143C3.92339 2.54293 4.32799 2.375 4.75 2.375H11.875L15.8333 6.33333V15.0337C15.8333 15.4558 15.6653 15.8604 15.3668 16.1589C15.0683 16.4574 14.6637 16.625 14.25 16.625Z"
+                  stroke="#080114"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M13.4583 16.625V10.6875H5.54167V16.625"
+                  stroke="#080114"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5.54167 2.375V6.33333H11.0833"
+                  stroke="#080114"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <!-- Reject and Accept Buttons -->
+            <div class="flex items-center gap-3">
+              <!-- Reject Button -->
+              <button
+                (click)="onReject()"
+                class="flex items-center justify-center gap-2 flex-1 h-[39px] rounded bg-[#F35353] hover:bg-[#d94444] transition-colors"
+              >
+                <span
+                  class="text-white text-base font-medium font-['Poppins'] capitalize"
+                >
+                  Reject
+                </span>
+                <svg
+                  class="w-[18px] h-[18px]"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.5 4.5L4.5 13.5M4.5 4.5L13.5 13.5"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <!-- Accept Button -->
+              <button
+                (click)="onAccept()"
+                class="flex items-center justify-center gap-2 flex-1 h-[39px] rounded bg-[#12CEB0] hover:bg-[#0fb89b] transition-colors"
+              >
+                <span
+                  class="text-white text-base font-medium font-['Poppins'] capitalize"
+                >
+                  Accept
+                </span>
+                <svg
+                  class="w-[18px] h-[18px]"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 4.5L6.75 12.75L3 9"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
