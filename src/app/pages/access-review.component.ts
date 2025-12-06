@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { DataSubmitterNavigationComponent } from "../components/data-submitter-navigation.component";
 import { AcceptanceModalComponent } from "../components/acceptance-modal.component";
+import { HistoryModalComponent } from "../components/history-modal.component";
 
 @Component({
   selector: "app-access-review",
@@ -12,6 +13,7 @@ import { AcceptanceModalComponent } from "../components/acceptance-modal.compone
     RouterModule,
     DataSubmitterNavigationComponent,
     AcceptanceModalComponent,
+    HistoryModalComponent,
   ],
   templateUrl: "./access-review.component.html",
 })
@@ -46,6 +48,7 @@ export class AccessReviewComponent {
   ];
 
   isModalOpen = false;
+  isHistoryModalOpen = false;
   selectedSubmission: any = null;
 
   onView(submission: any) {
@@ -54,7 +57,8 @@ export class AccessReviewComponent {
   }
 
   onHistory(submission: any) {
-    console.log("View history:", submission);
+    this.selectedSubmission = submission;
+    this.isHistoryModalOpen = true;
   }
 
   onDownload(submission: any) {
@@ -63,6 +67,11 @@ export class AccessReviewComponent {
 
   closeModal() {
     this.isModalOpen = false;
+    this.selectedSubmission = null;
+  }
+
+  closeHistoryModal() {
+    this.isHistoryModalOpen = false;
     this.selectedSubmission = null;
   }
 

@@ -1,0 +1,171 @@
+<!-- Modal Backdrop -->
+<div
+  *ngIf="isOpen"
+  class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+  (click)="onBackdropClick($event)"
+>
+  <!-- Modal Content -->
+  <div
+    class="bg-white rounded-2xl max-w-[1600px] w-full max-h-[95vh] overflow-y-auto shadow-2xl"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="p-6 lg:p-8 xl:p-12">
+      <!-- Header Section -->
+      <div
+        class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8 pb-6 border-b border-gray-200"
+      >
+        <!-- Left: Title and Details -->
+        <div class="flex items-start gap-5">
+          <div class="flex flex-col gap-2">
+            <h2
+              class="text-[#232323] text-base font-medium font-['Poppins'] capitalize"
+            >
+              {{ submission?.id }} ({{ submission?.title }})
+            </h2>
+            <p
+              class="text-[#6C6C6C] text-sm font-normal font-['Poppins'] capitalize"
+            >
+              {{ submission?.subId }}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <span
+                *ngFor="let tag of submission?.tags"
+                class="flex items-center justify-center px-2 py-1 rounded border-[0.25px] text-[10px] font-normal font-['Poppins'] capitalize"
+                [style.borderColor]="tag.color"
+                [style.color]="tag.color"
+              >
+                {{ tag.label }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Status Badge -->
+        <div class="flex items-center justify-center px-3 py-1.5 rounded-lg">
+          <span
+            class="text-[#10B99E] text-xs font-medium font-['Poppins'] capitalize"
+          >
+            Completed
+          </span>
+        </div>
+      </div>
+
+      <!-- History Log Title -->
+      <h3
+        class="text-lg font-medium font-['Poppins'] capitalize mb-6 bg-gradient-text bg-clip-text text-transparent"
+        style="background-image: linear-gradient(90deg, #080114 0%, #290967 100%)"
+      >
+        History Log
+      </h3>
+
+      <!-- Stats Grid -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 p-6 rounded-lg bg-gray-50"
+      >
+        <!-- Initial Submission -->
+        <div class="flex flex-col items-center gap-2">
+          <p
+            class="text-[#6C6C6C] text-center text-sm font-normal font-['Poppins'] capitalize"
+          >
+            Initial Submission
+          </p>
+          <p
+            class="text-[#080114] text-center text-base font-medium font-['Poppins'] capitalize"
+          >
+            {{ historyStats.initialSubmission }}
+          </p>
+        </div>
+
+        <!-- Total Processing Time -->
+        <div class="flex flex-col items-center gap-2">
+          <p
+            class="text-[#6C6C6C] text-center text-sm font-normal font-['Poppins'] capitalize"
+          >
+            Total Processing Time
+          </p>
+          <p
+            class="text-[#080114] text-center text-base font-medium font-['Poppins'] capitalize"
+          >
+            {{ historyStats.totalProcessingTime }}
+          </p>
+        </div>
+
+        <!-- Review Cycles -->
+        <div class="flex flex-col items-center gap-2">
+          <p
+            class="text-[#6C6C6C] text-center text-sm font-normal font-['Poppins'] capitalize"
+          >
+            Review Cycles
+          </p>
+          <p
+            class="text-[#080114] text-center text-base font-medium font-['Poppins'] capitalize"
+          >
+            {{ historyStats.reviewCycles }}
+          </p>
+        </div>
+
+        <!-- Final Status -->
+        <div class="flex flex-col items-center gap-2">
+          <p
+            class="text-[#6C6C6C] text-center text-sm font-normal font-['Poppins'] capitalize"
+          >
+            Final Status
+          </p>
+          <p
+            class="text-[#080114] text-center text-base font-medium font-['Poppins'] capitalize"
+          >
+            {{ historyStats.finalStatus }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative pl-12 space-y-8">
+        <!-- Timeline Line -->
+        <div
+          class="absolute left-[21px] top-[10px] bottom-[10px] w-0.5 bg-[#E0E0E0]"
+        ></div>
+
+        <!-- Timeline Events -->
+        <div
+          *ngFor="let event of timelineEvents; let i = index"
+          class="relative"
+        >
+          <!-- Timeline Dot -->
+          <div
+            class="absolute -left-12 top-0 w-5 h-5 rounded-full bg-[#290967] border-4 border-white shadow-md"
+          ></div>
+
+          <!-- Event Content -->
+          <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <!-- Date/Time -->
+            <div class="flex-shrink-0">
+              <p
+                class="text-black text-sm font-normal font-['Poppins'] capitalize"
+              >
+                {{ event.date }}
+              </p>
+              <p
+                class="text-black text-sm font-normal font-['Poppins'] capitalize"
+              >
+                {{ event.time }}
+              </p>
+            </div>
+
+            <!-- Event Details Card -->
+            <div
+              class="flex-1 bg-[#F8F9FA] rounded-lg p-6 min-h-[169px] hover:shadow-md transition-shadow"
+            >
+              <!-- You can add event details here -->
+              <p class="text-[#6C6C6C] text-sm font-['Poppins']">
+                {{ event.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -366,3 +366,10 @@
   (download)="onModalDownload()"
   (saveAsDraft)="onSaveAsDraft()"
 ></app-acceptance-modal>
+
+<!-- History Modal -->
+<app-history-modal
+  [isOpen]="isHistoryModalOpen"
+  [submission]="selectedSubmission"
+  (close)="closeHistoryModal()"
+></app-history-modal>
