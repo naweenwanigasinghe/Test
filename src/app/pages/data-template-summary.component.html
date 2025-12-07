@@ -116,9 +116,9 @@
           class="relative flex flex-col items-center justify-center bg-[#F4F6F8] rounded-lg px-4 sm:px-5 py-8 sm:py-10 md:py-12 lg:py-16 min-h-96 sm:min-h-80 md:min-h-96"
         >
           <!-- Menu Icon -->
-          <button class="absolute top-4 right-4">
+          <button class="absolute top-3 sm:top-4 right-3 sm:right-4">
             <svg
-              class="w-1 h-6 fill-[#6C6C6C]"
+              class="w-1 h-4 sm:h-5 md:h-6 fill-[#6C6C6C]"
               viewBox="0 0 4 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -130,21 +130,21 @@
 
           <!-- Number -->
           <div
-            class="text-[64px] font-semibold font-['Poppins'] capitalize text-center bg-gradient-to-r from-[#8427E2] via-[#8427E2] to-[#F35353] bg-clip-text text-transparent mb-2"
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold font-['Poppins'] capitalize text-center bg-gradient-to-r from-[#8427E2] via-[#8427E2] to-[#F35353] bg-clip-text text-transparent mb-2 sm:mb-3"
           >
             {{ card.number }}
           </div>
 
           <!-- Title -->
           <h3
-            class="text-[#484848] text-[28px] font-semibold font-['Poppins'] capitalize text-center mb-5 leading-tight min-h-[84px] flex items-center"
+            class="text-[#484848] text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold font-['Poppins'] capitalize text-center mb-3 sm:mb-4 md:mb-5 leading-tight"
           >
             {{ card.title }}
           </h3>
 
           <!-- Description -->
           <p
-            class="text-[#6C6C6C] text-base font-normal font-['Poppins'] capitalize text-center min-h-[48px]"
+            class="text-[#6C6C6C] text-xs sm:text-sm md:text-base font-normal font-['Poppins'] capitalize text-center"
           >
             {{ card.description }}
           </p>
